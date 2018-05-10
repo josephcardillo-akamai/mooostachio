@@ -10,6 +10,8 @@ class MaccountsController < ApplicationController
   # GET /maccounts/1
   # GET /maccounts/1.json
   def show
+    @mentries = Mentry.all
+    @maccounts = Maccount.all
   end
 
   # GET /maccounts/new
