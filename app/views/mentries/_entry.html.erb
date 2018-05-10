@@ -1,30 +1,31 @@
-<!-- <table class="table">
+<table class="table">
   <thead>
     <tr>
       <th scope="col">###</th>
+      <th scope="col">Amount</th>
       <th scope="col">Date</th>
-      <th scope="col">Status</th>
-      <th scope="col">Type</th>
+      <th scope="col">Note</th>
       <th scope="col">Category</th>
       <th scope="col">Location</th>
-      <th scope="col">Amount</th>
-      <th scope="col">Note</th>
+      <th scope="col">Type</th>
+      <th scope="col">Status</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Destroy</th>
     </tr>
   </thead>
+
   <tbody class="table-row">
-    <% @mentries.each do |mentry| %>
-    <% if @maccount.name == mentry.maccount.name %>
-    <tr>
-      <th scope="row"><%= link_to mentry.id, mentry_path(mentry.id) %></th>
-      <th scope="row"><%= mentry.date %></th>
-      <th scope="row"><%= mentry.mstatus.name %></th>
-      <th scope="row"><%= mentry.mtype.name %></th>
-      <th scope="row"><%= mentry.mcategory.name %></th>
-      <th scope="row"><%= mentry.mlocation.name %></th>
-      <th scope="row"><%= mentry.amount %></th>
-      <th scope="row"><%= mentry.note %></th>
-    </tr>
-    <% end %>
-  <% end %>
+      <tr>
+        <td scope="row"><%= @mentry.id %></td>
+        <td scope="row"><%= @mentry.amount %></td>
+        <td scope="row"><%= @mentry.date %></td>
+        <td scope="row"><%= @mentry.note %></td>
+        <td scope="row"><%= @mentry.mcategory.name %></td>
+        <td scope="row"><%= @mentry.mlocation.name %></td>
+        <td scope="row"><%= @mentry.mtype.name %></td>
+        <td scope="row"><%= @mentry.mstatus.name %></td>
+        <td scope="row"><%= link_to 'Edit', edit_mentry_path(@mentry) %></td>
+        <td scope="row"><%= link_to 'Destroy', @mentry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
   </tbody>
-</table> -->
+</table>

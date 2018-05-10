@@ -1,31 +1,5 @@
 <p id="notice"><%= notice %></p>
-
 <h1>Entries</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Amount</th>
-      <th>Date</th>
-      <th>Note</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @mentries.each do |mentry| %>
-      <tr>
-        <td><%= mentry.amount %></td>
-        <td><%= mentry.date %></td>
-        <td><%= mentry.note %></td>
-        <td><%= link_to 'Show', mentry %></td>
-        <td><%= link_to 'Edit', edit_mentry_path(mentry) %></td>
-        <td><%= link_to 'Destroy', mentry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+<%= render 'dashboard/entries' %>
 <br>
-
-<%= link_to 'New Mentry', new_mentry_path %>
+<%= link_to 'New Entry', new_mentry_path %>
