@@ -1,6 +1,8 @@
 <% if current_user %>
 <ul>
   <li><%= link_to 'New Entry', new_mentry_path %></li>
+  <li><%= link_to 'All Entries', mentries_path %></li>
+  <li><%= link_to 'Dashboard', root_path %></li>
   <li><%= link_to 'Accounts', maccounts_path %></li>
   <li><%= link_to 'New Account', new_maccount_path %></li>
   <li><%= link_to 'Locations', mlocations_path %></li>

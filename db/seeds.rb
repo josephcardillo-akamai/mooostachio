@@ -39,6 +39,7 @@ end
 
 mlocation_list = [
   ["Trader Joe's", 1],
+  ["Whole Foods", 1],
   ["Shell Collingswood", 1],
   ["PATCO", 1],
   ["JPMorgan", 1],
@@ -76,7 +77,8 @@ end
 
 mentry_list = [
   [100.02, 1, DateTime.now, 1, 1, 1, 1, 1],
-  [25.85, 3, DateTime.now + 7.days, 2, 1, 5, 5, 1]
+  [50.23, 2, DateTime.now, 1, 1, 2, 1, 1],
+  [25.85, 3, DateTime.now + 7.days, 2, 1, 6, 5, 1]
 ]
 
 mentry_list.each do |amt, sta, date, typ, act, loc, cat, uid|
