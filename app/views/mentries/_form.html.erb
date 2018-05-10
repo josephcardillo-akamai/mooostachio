@@ -22,6 +22,11 @@
   </div>
 
   <div class="field">
+    <%= form.label :mstatus, "Status" %>
+    <%= form.select :mstatus_id, mstatuses_dropdown %>
+  </div>
+
+  <div class="field">
     <%= form.label :maccount, "Account" %>
     <%= form.select :maccount_id, maccounts_dropdown %>
   </div>

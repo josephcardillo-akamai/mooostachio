@@ -75,10 +75,10 @@ end
 
 
 mentry_list = [
-  [100.02, DateTime.now, 1, 1, 1, 1, 1],
-  [25.85, DateTime.now + 7.days, 2, 1, 5, 5, 1]
+  [100.02, 1, DateTime.now, 1, 1, 1, 1, 1],
+  [25.85, 3, DateTime.now + 7.days, 2, 1, 5, 5, 1]
 ]
 
-mentry_list.each do |amt, date, typ, act, loc, cat, uid|
-  Mentry.create(amount: amt, date: date, mtype_id: typ, maccount_id: act, mlocation_id: loc, mcategory_id: cat, user_id: uid)
+mentry_list.each do |amt, sta, date, typ, act, loc, cat, uid|
+  Mentry.create(amount: amt, mstatus_id: sta, date: date, mtype_id: typ, maccount_id: act, mlocation_id: loc, mcategory_id: cat, user_id: uid)
 end
