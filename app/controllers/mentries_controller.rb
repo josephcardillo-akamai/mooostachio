@@ -26,7 +26,10 @@ class MentriesController < ApplicationController
   def create
     @mentry = Mentry.new(mentry_params)
     @mentry.user_id = current_user.id
-     
+    # @mentry.maccount_id = Maccount.find(params[:id])
+    # @mentry.mcategory_id = Mcategory.find(params[:id])
+    # @mentry.mlocation_id = Mlocation.find(params[:id])
+    # @mentry.mtype_id = Mtype.find(params[:id])
     respond_to do |format|
       if @mentry.save
         format.html { redirect_to @mentry, notice: 'Mentry was successfully created.' }
@@ -70,6 +73,6 @@ class MentriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def mentry_params
-      params.require(:mentry).permit(:amount, :date, :note)
+      params.require(:mentry).permit(:amount, :date, :note, :maccount_id, :mcategory_id, :mlocation_id, :mtype_id)
     end
 end
