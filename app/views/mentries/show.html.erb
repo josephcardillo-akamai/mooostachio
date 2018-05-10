@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @mentry.amount %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @mentry.date %>
+</p>
+
+<p>
+  <strong>Note:</strong>
+  <%= @mentry.note %>
+</p>
+
+<%= link_to 'Edit', edit_mentry_path(@mentry) %> |
+<%= link_to 'Back', mentries_path %>

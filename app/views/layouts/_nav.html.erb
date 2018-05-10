@@ -1,0 +1,16 @@
+<% if current_user %>
+<ul>
+  <li><%= link_to 'New Entry', new_mentry_path %></li>
+  <li><%= link_to 'Accounts', maccounts_path %></li>
+  <li><%= link_to 'New Account', new_maccount_path %></li>
+  <li><%= link_to 'Locations', mlocations_path %></li>
+  <li><%= link_to 'New Location', new_mlocation_path %></li>
+  <li><%= link_to 'Categories', mcategories_path %></li>
+  <li><%= link_to 'New Category', new_mcategory_path %></li>
+  <li><%= link_to 'Types', mtypes_path %></li>
+  <li><%= link_to 'New Type', new_mtype_path %></li>
+  <li><%= link_to current_user.email, edit_user_registration_path %></li>
+  <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+<% else %>
+<% end %>
+</ul>

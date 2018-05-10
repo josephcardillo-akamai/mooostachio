@@ -1,0 +1,2 @@
+module MentriesHelper
+end
