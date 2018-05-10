@@ -21,7 +21,7 @@
       <th scope="row"><%= mentry.mtype.name %></th>
       <th scope="row"><%= mentry.mcategory.name %></th>
       <th scope="row"><%= mentry.mlocation.name %></th>
-      <th scope="row"><%= mentry.amount %></th>
+      <th scope="row"><%= number_to_currency(mentry.amount) %></th>
       <th scope="row"><%= mentry.note %></th>
     </tr>
     <% end %>

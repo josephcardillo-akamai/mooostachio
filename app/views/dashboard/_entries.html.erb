@@ -19,7 +19,7 @@
     <% @mentries.each do |mentry| %>
       <tr>
         <td scope="row"><%= mentry.id %></td>
-        <td scope="row"><%= mentry.amount %></td>
+        <td scope="row"><%= number_to_currency(mentry.amount) %></td>
         <td scope="row"><%= mentry.date %></td>
         <td scope="row"><%= mentry.note %></td>
         <td scope="row"><%= mentry.mcategory.name %></td>

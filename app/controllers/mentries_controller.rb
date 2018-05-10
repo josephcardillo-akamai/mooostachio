@@ -73,6 +73,6 @@ class MentriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def mentry_params
-      params.require(:mentry).permit(:amount, :date, :note, :maccount_id, :mcategory_id, :mlocation_id, :mtype_id)
+      params.require(:mentry).permit(:amount, :date, :note, :maccount_id, :mcategory_id, :mlocation_id, :mtype_id, :mstatus_id)
     end
 end

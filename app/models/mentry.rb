@@ -5,4 +5,6 @@ class Mentry < ApplicationRecord
   belongs_to :mlocation
   belongs_to :mtype
   belongs_to :mstatus
+
+  validates :amount, numericality: { only_integer: true }
 end
