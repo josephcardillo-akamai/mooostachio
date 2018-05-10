@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_10_115504) do
+ActiveRecord::Schema.define(version: 2018_05_10_163633) do
 
   create_table "maccounts", force: :cascade do |t|
     t.string "name"
@@ -38,10 +38,12 @@ ActiveRecord::Schema.define(version: 2018_05_10_115504) do
     t.integer "maccount_id"
     t.integer "mlocation_id"
     t.integer "mcategory_id"
+    t.integer "mstatus_id"
     t.integer "user_id"
     t.index ["maccount_id"], name: "index_mentries_on_maccount_id"
     t.index ["mcategory_id"], name: "index_mentries_on_mcategory_id"
     t.index ["mlocation_id"], name: "index_mentries_on_mlocation_id"
+    t.index ["mstatus_id"], name: "index_mentries_on_mstatus_id"
     t.index ["mtype_id"], name: "index_mentries_on_mtype_id"
     t.index ["user_id"], name: "index_mentries_on_user_id"
   end
@@ -52,6 +54,14 @@ ActiveRecord::Schema.define(version: 2018_05_10_115504) do
     t.datetime "updated_at", null: false
     t.integer "user_id"
     t.index ["user_id"], name: "index_mlocations_on_user_id"
+  end
+
+  create_table "mstatuses", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_mstatuses_on_user_id"
   end
 
   create_table "mtypes", force: :cascade do |t|
