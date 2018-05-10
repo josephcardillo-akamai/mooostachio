@@ -10,6 +10,7 @@ class CreateMentries < ActiveRecord::Migration[5.2]
       t.references :maccount
       t.references :mlocation
       t.references :mcategory
+      t.references :mstatus
       t.references :user
 
     end

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :mstatuses
   get 'user/index'
   get 'user/show'
   get 'dashboard/index'
