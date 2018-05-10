@@ -1,0 +1,20 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Category</th>
+      <th scope="col">Total</th>
+    </tr>
+  </thead>
+  <tbody class="table-row">
+      <% @mcategories.each do |mcategory| %>
+        <tr>
+            <th scope="row"><%= link_to mcategory.name, mcategory_path(mcategory.id) %></th>
+            <% total = 0 %>
+            <% mcategory.mentries.each do |entry| %>
+              <% total += entry.amount %>
+            <% end %>
+            <th scope="row"><%= total %></th>
+        <% end %>
+        </tr>
+  </tbody>
+</table>
