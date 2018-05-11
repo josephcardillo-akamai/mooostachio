@@ -6,5 +6,5 @@ class Mentry < ApplicationRecord
   belongs_to :mtype
   belongs_to :mstatus
 
-  validates :amount, numericality: { only_integer: true }
+  validates :amount, numericality: true
 end
