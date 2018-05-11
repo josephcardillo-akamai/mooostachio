@@ -1,5 +1,9 @@
 <h1>Dashboard</h1>
-<h2>Savings Breakdown</h2>
+
+<h2>Checking Balance</h2>
+<p><%= account_sum %></p>
+
+<h2>Spending Breakdown</h2>
 <% if user_signed_in? %>
   <%= render 'dashboard/spending' %>
 <% else %>
