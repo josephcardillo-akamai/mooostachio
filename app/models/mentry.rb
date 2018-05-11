@@ -7,4 +7,5 @@ class Mentry < ApplicationRecord
   belongs_to :mstatus
 
   validates :amount, numericality: true
+
 end

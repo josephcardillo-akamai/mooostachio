@@ -1,4 +1,12 @@
 <p id="notice"><%= notice %></p>
+
+<%= form_tag(mentries_path, :method => "get", id: "search-form", class: "form-inline my-2 my-lg-0") do %>
+ <%= text_field_tag :search, params[:search], placeholder: "Search", class: 'form-control' %>
+ <span class="input-group-btn">
+   <%= submit_tag "Search", class: 'btn btn-outline-success my-2 my-sm-0' %>
+ </span>
+<% end %>
+
 <h1>Entries</h1>
 <%= render 'dashboard/entries' %>
 <br>

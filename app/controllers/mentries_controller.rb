@@ -4,8 +4,15 @@ class MentriesController < ApplicationController
   # GET /mentries
   # GET /mentries.json
   def index
-    @mentries = Mentry.all
+    if params[:search] == nil
+      @mentries = Mentry.all
+    else
+    to_search = params[:search].capitalize!
+    category_id = Mcategory.where(name: to_search).first.id
+    @mentries = Mentry.where(mcategory_id: category_id)
+    end
   end
+
 
   # GET /mentries/1
   # GET /mentries/1.json
