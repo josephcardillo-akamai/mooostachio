@@ -1,20 +1,68 @@
-<% if current_user %>
-<ul>
-  <li><%= link_to 'New Entry', new_mentry_path %></li>
-  <li><%= link_to 'All Entries', mentries_path %></li>
-  <li><%= link_to 'Dashboard', root_path %></li>
-  <li><%= link_to 'Accounts', maccounts_path %></li>
-  <li><%= link_to 'New Account', new_maccount_path %></li>
-  <li><%= link_to 'Locations', mlocations_path %></li>
-  <li><%= link_to 'New Location', new_mlocation_path %></li>
-  <li><%= link_to 'Categories', mcategories_path %></li>
-  <li><%= link_to 'New Category', new_mcategory_path %></li>
-  <li><%= link_to 'Types', mtypes_path %></li>
-  <li><%= link_to 'New Type', new_mtype_path %></li>
-  <li><%= link_to 'Statuses', mstatuses_path %></li>
-  <li><%= link_to 'New Status', new_mstatus_path %></li>
-  <li><%= link_to current_user.email, edit_user_registration_path %></li>
-  <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
-<% else %>
+<!-- link_to current_user.email, edit_user_registration_path -->
+
+<% if user_signed_in? %>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="<%= root_path %>">Dashboard</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="<%= new_mentry_path %>">New Entry <span class="sr-only">(current)</span></a>
+      </li>
+      <!-- <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li> -->
+
+      <li class="nav-item active dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Accounts
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <% Maccount.all.each do |maccount| %>
+          <%= link_to maccount.name, maccount_path(maccount.id), class: "dropdown-item" %>
+          <% end %>
+        </div>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          View By
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="<%= mcategories_path %>">Categories</a>
+          <a class="dropdown-item" href="<%= mlocations_path %>">Locations</a>
+          <!-- <div class="dropdown-divider"></div> -->
+          <a class="dropdown-item" href="<%= mtypes_path %>">Transaction Types</a>
+          <a class="dropdown-item" href="<%= mstatuses_path %>">Status</a>
+        </div>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Create New
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="<%= new_maccount_path %>">Account</a>
+          <a class="dropdown-item" href="<%= new_mcategory_path %>">Category</a>
+          <a class="dropdown-item" href="<%= new_mlocation_path %>">Location</a>
+          <!-- <div class="dropdown-divider"></div> -->
+          <a class="dropdown-item" href="<%= new_mtype_path %>">Transaction Type</a>
+          <a class="dropdown-item" href="<%= new_mstatus_path %>">Status</a>
+        </div>
+      </li>
+
+      <li class="nav-item">
+        <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "nav-link" %>
+      </li>
+    </ul>
+
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
 <% end %>
-</ul>
