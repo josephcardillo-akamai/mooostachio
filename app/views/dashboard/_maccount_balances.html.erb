@@ -1,20 +1,23 @@
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Account</th>
-      <th scope="col">Balance</th>
-    </tr>
-  </thead>
-  <tbody class="table-row">
-      <% @maccounts.each do |maccount| %>
-        <tr>
-            <th scope="row"><%= link_to maccount.name, maccount_path(maccount.id) %></th>
-            <% total = 0 %>
-            <% maccount.mentries.each do |mentry| %>
-              <% total += mentry.amount %>
-            <% end %>
-            <th scope="row"><%= number_to_currency(total) %></th>
-        <% end %>
-        </tr>
-  </tbody>
-</table>
+<div id="maccount-balances">
+    <h2>Account Balances</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Account</th>
+            <th scope="col">Balance</th>
+          </tr>
+        </thead>
+        <tbody class="table-row">
+            <% @maccounts.each do |maccount| %>
+              <tr>
+                  <th scope="row"><%= link_to maccount.name, maccount_path(maccount.id) %></th>
+                  <% total = 0 %>
+                  <% maccount.mentries.each do |mentry| %>
+                    <% total += mentry.amount %>
+                  <% end %>
+                  <th scope="row"><%= number_to_currency(total) %></th>
+              <% end %>
+              </tr>
+        </tbody>
+      </table>
+</div>
