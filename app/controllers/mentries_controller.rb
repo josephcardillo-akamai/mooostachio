@@ -33,13 +33,9 @@ class MentriesController < ApplicationController
   def create
     @mentry = Mentry.new(mentry_params)
     @mentry.user_id = current_user.id
-    # @mentry.maccount_id = Maccount.find(params[:id])
-    # @mentry.mcategory_id = Mcategory.find(params[:id])
-    # @mentry.mlocation_id = Mlocation.find(params[:id])
-    # @mentry.mtype_id = Mtype.find(params[:id])
     respond_to do |format|
       if @mentry.save
-        format.html { redirect_to @mentry, notice: 'Mentry was successfully created.' }
+        format.html { redirect_to root_path, notice: 'Mentry was successfully created.' }
         format.json { render :show, status: :created, location: @mentry }
       else
         format.html { render :new }

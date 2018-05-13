@@ -12,6 +12,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link href="https://fonts.googleapis.com/css?family=Caveat|IBM+Plex+Serif|Roboto+Mono" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+
   </head>
 
   <body>
@@ -20,6 +21,28 @@
     </header>
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
+      <div id="app">
+        <button v-on:click="alertMe" type="button" name="button">Click Me</button>
+      </div>
       <%= yield %>
+      <script type="text/javascript">
+      new Vue({
+        el: '#app',
+        // data is not reactive
+        data: {
+          title: 'Hello World!',
+        },
+        // for running synchronous tasks:
+        computed: {
+
+        },
+        methods: {
+          alertMe: function() {
+            alert('Hi!');
+          }
+        }
+      });
+      </script>
+
   </body>
 </html>
