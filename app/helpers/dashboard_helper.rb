@@ -10,18 +10,18 @@ module DashboardHelper
       number_to_currency(total)
   end
 
-  def maccounts
+  def maccount_list
       @maccounts = Maccount.all
       arr = []
       @maccounts.each do |maccount|
          arr << maccount.name
       end
       return arr
-      account = []
-      arr.each do |a|
-        account << a
-      end
-      return account
+      # account = []
+      # arr.each do |a|
+      #   account << a
+      # end
+      # return account
   end
 
   def maccount_totals
@@ -36,4 +36,5 @@ module DashboardHelper
       end
       return num
   end
+
 end
