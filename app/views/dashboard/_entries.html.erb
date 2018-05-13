@@ -16,7 +16,7 @@
   </thead>
 
   <tbody class="table-row">
-    <% @mentries.each do |mentry| %>
+    <% @mentries.reverse.each do |mentry| %>
       <tr>
         <td scope="row"><%= mentry.id %></td>
         <td scope="row"><%= number_to_currency(mentry.amount) %></td>
