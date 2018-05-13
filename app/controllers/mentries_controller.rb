@@ -34,7 +34,10 @@ class MentriesController < ApplicationController
     @mentry = Mentry.new(mentry_params)
     @mentry.user_id = current_user.id
     respond_to do |format|
-      if @mentry.save
+      if @mentry.save && @mentry.mtype.name == 'Transfer'
+        format.html { redirect_to new_mentry_path, notice: 'Mentry was successfully created.' }
+        format.json { render :edit, status: :created, location: @mentry }
+      elsif @mentry.save && @mentry.mtype != 'Transfer'
         format.html { redirect_to root_path, notice: 'Mentry was successfully created.' }
         format.json { render :show, status: :created, location: @mentry }
       else
