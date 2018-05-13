@@ -11,7 +11,9 @@
             <th scope="row"><%= link_to mcategory.name, mcategory_path(mcategory.id) %></th>
             <% total = 0 %>
             <% mcategory.mentries.each do |entry| %>
+              <% if entry.mtype.name != 'Transfer' %>
               <% total += entry.amount %>
+              <% end %>
             <% end %>
             <th scope="row"><%= number_to_currency(total * -1) %></th>
         <% end %>
