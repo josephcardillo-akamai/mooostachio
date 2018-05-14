@@ -12,18 +12,22 @@ $(document).on('change','#transfer', function(){
   }
 });
 
-var split_button;
+var split_button_yes = $('#split-yes').val();
+var split_button_no = $('#split-no').val();
+
+$(document).on('change','#split-no', function(){
+    split_button_no = "on";
+    split_button_yes = "off";
+});
+
 $(document).on('change','#split-yes', function(){
-  split_button = $('#split-yes').val();
-  if (split_button == 'on') {
-    // alert('split button on!');
-    
-  }
+    split_button_yes = "on";
+    split_button_no = "off";
 });
 
 var select_amount;
-$(document).on('input','#mentry_amount', function(){
-  select_amount = $('#mentry_amount').val();
+$(document).on('input','.first_amount', function(){
+  select_amount = $('.first_amount').val();
 });
 
 var select_status;
@@ -44,4 +48,13 @@ $(document).on('change','#mentry_mcategory_id', function(){
 var select_location;
 $(document).on('change','#mentry_mlocation_id', function(){
   select_location = $('#mentry_mlocation_id').val();
+});
+
+var split_amount;
+
+var new_amount;
+$(document).on('input','.new-amount', function(){
+  split_amount = $('.new-amount').val();
+  new_amount = (select_amount - split_amount);
+  $('#split-amount')[0].innerText = "Amount: " + (new_amount * -1);
 });

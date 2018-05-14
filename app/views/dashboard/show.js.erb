@@ -5,10 +5,10 @@ var select_status = $('#mentry_mstatus_id').val();
 var select_account = $('#mentry_maccount_id').val();
 var select_category = $('#mentry_mcategory_id').val();
 var select_location = $('#mentry_mlocation_id').val();
-var split_button = $('#split-yes').val();
+
 
 if (select_transfer == 3) {
-  // alert("You selected transfer!");
+  alert("Number 1");
   $('#transfer-slide-out').replaceWith("<%= j render 'mentries/transfer' %>");
   $('#mentry_amount').val(select_amount * -1);
   $('#mentry_mstatus_id').val(select_status);
@@ -16,17 +16,27 @@ if (select_transfer == 3) {
   $('#mentry_mcategory_id').val(select_category);
   $('#mentry_mlocation_id').val(select_location);
 }
-else if (select_transfer != 3 && split_button == 'on') {
+else if (select_transfer != 3 && split_button_yes == 'on') {
+  alert("number 2");
+  split_button_yes = 'off';
   $('#transfer-btn').replaceWith('');
-  $('#split-amount').replaceWith(select_amount);
   $('#transfer-slide-out').replaceWith("<%= j render 'mentries/split' %>");
+  $('#maccount-balances').replaceWith("<%= j render 'dashboard/maccount_balances' %>");
+  $('#spending-breakdown').replaceWith("<%= j render 'dashboard/spending' %>");
+  $(document).ready(function() {
+      $('#split-amount')[0].innerText = "Amount: " + (select_amount * -1);
+  });
 }
-else {
-  // alert("What's going on here?");
-  $('#maccount-balances').replaceWith("<%= j render 'dashboard/maccount_balances' %>")
-  $('#mentry_amount').val('');
-  $('#spending-breakdown').replaceWith("<%= j render 'dashboard/spending' %>")
-};
+else if (split_button_no == 'on') {
+  alert("Number 3");
+  $('#transfer-slide-out').replaceWith("<%= j render 'mentries/postSplitForm' %>");
+  $('#maccount-balances').replaceWith("<%= j render 'dashboard/maccount_balances' %>");
+  $('#spending-breakdown').replaceWith("<%= j render 'dashboard/spending' %>");
+  // $(document).ready(function() {
+  $('#amount-reset')[0].innerText = "Amount: ";
+  // });
+}
+
 
 // var select_transfer;
 // $(document).on('change','#transfer', function(){
