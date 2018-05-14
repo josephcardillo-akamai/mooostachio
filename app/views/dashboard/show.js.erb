@@ -1,19 +1,27 @@
 // alert('hi!')
-var select_transfer;
-$(document).on('change','#transfer', function(){
-  select_transfer = $('#transfer').val();
-  });
+var select_transfer = $('#transfer').val();
+// $(document).on('change','#transfer', function(){
+  // select_transfer = $('#transfer').val();
+  // });
 
-var select_amount;
-$(document).on('input','#mentry_amount', function(){
-  select_amount = $('#mentry_amount').val();
-})
+var select_amount = $('#mentry_amount').val();
+// $(document).on('input','#mentry_amount', function(){
+//   select_amount = $('#mentry_amount').val();
+// })
 
+var select_status = $('#mentry_mstatus_id').val();
+var select_account = $('#mentry_maccount_id').val();
+var select_category = $('#mentry_mcategory_id').val();
+var select_location = $('#mentry_mlocation_id').val();
 
 if (select_transfer == 3) {
   // alert("You selected transfer!");
   $('#transfer-slide-out').replaceWith("<%= j render 'mentries/transfer' %>");
   $('#mentry_amount').val(select_amount * -1);
+  $('#mentry_mstatus_id').val(select_status);
+  $('#mentry_maccount_id').val(select_account);
+  $('#mentry_mcategory_id').val(select_category);
+  $('#mentry_mlocation_id').val(select_location);
 }
 else {
   // alert("What's going on here?");
