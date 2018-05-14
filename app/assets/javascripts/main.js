@@ -12,6 +12,15 @@ $(document).on('change','#transfer', function(){
   }
 });
 
+var split_button;
+$(document).on('change','#split-yes', function(){
+  split_button = $('#split-yes').val();
+  if (split_button == 'on') {
+    // alert('split button on!');
+    
+  }
+});
+
 var select_amount;
 $(document).on('input','#mentry_amount', function(){
   select_amount = $('#mentry_amount').val();
