@@ -37,12 +37,15 @@ class MentriesController < ApplicationController
       if @mentry.save && @mentry.mtype.name == 'Transfer'
         format.html { redirect_to new_mentry_path, notice: 'Mentry was successfully created.' }
         format.json { render :edit, status: :created, location: @mentry }
+        format.js
       elsif @mentry.save && @mentry.mtype != 'Transfer'
         format.html { redirect_to root_path, notice: 'Mentry was successfully created.' }
         format.json { render :show, status: :created, location: @mentry }
+        format.js
       else
         format.html { render :new }
         format.json { render json: @mentry.errors, status: :unprocessable_entity }
+        format.js
       end
     end
   end

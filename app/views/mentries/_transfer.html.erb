@@ -1,4 +1,4 @@
-<div id="transfer-slide-out">
+  <div id="transfer-slide-out" class="form-container2">
   <h2>New Entry</h2>
     <% if user_signed_in? %>
         <%= form_with model: Mentry.new, url: root_path do |form| %>
@@ -17,6 +17,14 @@
           <div class="field">
             <%= form.label :amount %>
             <%= form.text_field :amount %>
+          </div>
+
+          <div class="">
+            <p>
+              Split:
+                <input type="radio" name="split" id="split-yes"><span> Yes</span>
+                <input type="radio" name="split" id="split-no"><span> No</span>
+            </p>
           </div>
 
           <div class="field">
@@ -59,4 +67,4 @@
           </div>
       <% end %>
     <% end %>
-</div>
+  </div>
