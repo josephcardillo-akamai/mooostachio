@@ -21,20 +21,20 @@
     </header>
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
-      <div id="app">
-        <button v-on:click="alertMe" type="button" name="button">Click Me</button>
-      </div>
       <%= yield %>
-      <script type="text/javascript">
-      new Vue({
-        el: '#app',
-        methods: {
-          alertMe: function() {
-            alert('Hi!');
-          }
-        }
-      });
-      </script>
 
+      <script type="text/javascript">
+      var select_transfer;
+      $(document).on('change','#transfer', function(){
+        select_transfer = $('#transfer').val();
+        if (select_transfer == 3) {
+          alert("You selected transfer!");
+          }
+          else {
+            alert("What's going on here?");
+          }
+        });
+
+      </script>
   </body>
 </html>
