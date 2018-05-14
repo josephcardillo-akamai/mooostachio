@@ -2,12 +2,12 @@
   <h2>New Entry</h2>
     <% if user_signed_in? %>
         <%= form_with model: Mentry.new, url: root_path do |form| %>
-          <% if mentry.errors.any? %>
+          <% if @mentry.errors.any? %>
             <div id="error_explanation">
-              <h2><%= pluralize(mentry.errors.count, "error") %> prohibited this mentry from being saved:</h2>
+              <h2><%= pluralize(@mentry.errors.count, "error") %> prohibited this mentry from being saved:</h2>
 
               <ul>
-              <% mentry.errors.full_messages.each do |message| %>
+              <% @mentry.errors.full_messages.each do |message| %>
                 <li><%= message %></li>
               <% end %>
               </ul>
@@ -35,17 +35,17 @@
           </div>
 
           <div class="field">
-            <%= form.label :maccount, "Account" %>
+            <%= form.label :maccount, "To Account" %>
             <%= form.select :maccount_id, maccounts_dropdown %>
           </div>
 
           <div class="field">
-            <%= form.label :mcategory, "Category" %>
+            <%= form.label :mcategory, "To Category" %>
             <%= form.select :mcategory_id, mcategories_dropdown %>
           </div>
 
           <div class="field">
-            <%= form.label :mlocation, "Location" %>
+            <%= form.label :mlocation, "To Location" %>
             <%= form.select :mlocation_id, mlocations_dropdown %>
           </div>
 
@@ -55,8 +55,8 @@
           </div>
 
           <div class="actions">
-            <%= form.submit "Create Entry", id: "transfer-btn" %>
+            <%= form.submit "Transfer Money" %>
           </div>
-        <% end %>
+      <% end %>
     <% end %>
-  </div>
+</div>

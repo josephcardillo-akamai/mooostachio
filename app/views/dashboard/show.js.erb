@@ -1,13 +1,38 @@
 // alert('hi!')
-$('#maccount-balances').replaceWith("<%= j render 'dashboard/maccount_balances' %>")
+var select_transfer;
+$(document).on('change','#transfer', function(){
+  select_transfer = $('#transfer').val();
+  });
+
+var select_amount;
+$(document).on('input','#mentry_amount', function(){
+  select_amount = $('#mentry_amount').val();
+})
+
+
+if (select_transfer == 3) {
+  // alert("You selected transfer!");
+  $('#transfer-slide-out').replaceWith("<%= j render 'mentries/transfer' %>");
+  $('#mentry_amount').val(select_amount * -1);
+}
+else {
+  // alert("What's going on here?");
+  $('#maccount-balances').replaceWith("<%= j render 'dashboard/maccount_balances' %>")
+};
+
+
+
+
 
 // var select_transfer;
 // $(document).on('change','#transfer', function(){
-//     select_transfer = $(this).val();
-//       if (select_transfer == 'transfer') {
-//         alert("You selected transfer!");
-//       }
-//       else {
-//         alert("What's going on here?");
-//       }
+//   select_transfer = $('#transfer').val();
+//     if (select_transfer == 3) {
+//       // alert("You selected transfer!");
+//       $('#transfer-slide-out').replaceWith("<%= j render 'mentries/transfer' %>");
+//     }
+//
+//     else {
+//       alert("What's going on here?");
+//     }
 //   });
