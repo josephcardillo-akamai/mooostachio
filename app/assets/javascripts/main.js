@@ -7,10 +7,10 @@ $(document).on('change','#transfer', function(){
     $('#transfer-btn').replaceWith("<input type='submit' name='commit' value='Transfer To...' id='transfer-btn' data-disable-with='Create Entry'>");
   }
   else {
-    alert("What's going on here?");
+    // alert("What's going on here?");
+    $('#transfer-btn').replaceWith("<input type='submit' name='commit' value='Create Entry' id='transfer-btn' data-disable-with='Create Entry'>");
   }
 });
-
 
 var select_amount;
 $(document).on('input','#mentry_amount', function(){

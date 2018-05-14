@@ -1,14 +1,6 @@
 // alert('hi!')
 var select_transfer = $('#transfer').val();
-// $(document).on('change','#transfer', function(){
-  // select_transfer = $('#transfer').val();
-  // });
-
 var select_amount = $('#mentry_amount').val();
-// $(document).on('input','#mentry_amount', function(){
-//   select_amount = $('#mentry_amount').val();
-// })
-
 var select_status = $('#mentry_mstatus_id').val();
 var select_account = $('#mentry_maccount_id').val();
 var select_category = $('#mentry_mcategory_id').val();
@@ -24,13 +16,10 @@ if (select_transfer == 3) {
   $('#mentry_mlocation_id').val(select_location);
 }
 else {
-  // alert("What's going on here?");
+  alert("What's going on here?");
   $('#maccount-balances').replaceWith("<%= j render 'dashboard/maccount_balances' %>")
+  $('#spending-breakdown').replaceWith("<%= j render 'dashboard/spending' %>")
 };
-
-
-
-
 
 // var select_transfer;
 // $(document).on('change','#transfer', function(){
