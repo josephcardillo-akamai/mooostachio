@@ -11,6 +11,7 @@ class DashboardController < ApplicationController
     @maccounts = Maccount.all
     @mentry = Mentry.new(mentry_params)
     @mentry.user_id = current_user.id
+    @mcategories = Mcategory.all
 
       if @mentry.save && @mentry.mtype.name == 'Transfer'
         respond_to do |format|

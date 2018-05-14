@@ -16,8 +16,9 @@ if (select_transfer == 3) {
   $('#mentry_mlocation_id').val(select_location);
 }
 else {
-  alert("What's going on here?");
+  // alert("What's going on here?");
   $('#maccount-balances').replaceWith("<%= j render 'dashboard/maccount_balances' %>")
+  $('#mentry_amount').val('');
   $('#spending-breakdown').replaceWith("<%= j render 'dashboard/spending' %>")
 };
 
