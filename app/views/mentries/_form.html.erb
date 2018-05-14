@@ -1,3 +1,4 @@
+<% if user_signed_in? %>
     <%= form_with model: Mentry.new, url: root_path do |form| %>
       <% if mentry.errors.any? %>
         <div id="error_explanation">
@@ -33,7 +34,7 @@
 
       <div class="field">
         <%= form.label :mtype, "Type" %>
-        <%= form.select :mtype_id, mtypes_dropdown %>
+        <%= form.select :mtype_id, mtypes_dropdown, {}, id: 'transfer' %>
       </div>
 
       <div class="field">
@@ -55,3 +56,4 @@
         <%= form.submit "Create Entry" %>
       </div>
     <% end %>
+<% end %>
