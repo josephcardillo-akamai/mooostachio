@@ -1,10 +1,6 @@
 <% if user_signed_in? %>
   <h1>Dashboard</h1>
-
-  <div id="app2">
-    <h2>New Entry</h2>
     <%= render 'mentries/form', mentry: @mentry %>
-  </div>
     <%= render 'dashboard/maccount_balances' %>
   <h2>Spending Breakdown</h2>
     <%= render 'dashboard/spending' %>
