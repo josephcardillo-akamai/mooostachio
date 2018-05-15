@@ -1,9 +1,9 @@
 <% if user_signed_in? %>
-
-<%= pie_chart chart_array %>
-
   <h1>Dashboard</h1>
     <%= render 'mentries/form', mentry: @mentry %>
+    <div id="pie-chart">
+      <%= render 'dashboard/piechart' %>
+    </div>
     <%= render 'dashboard/maccount_balances' %>
   <h2>Spending Breakdown</h2>
     <%= render 'dashboard/spending' %>
