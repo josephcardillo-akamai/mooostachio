@@ -23,30 +23,19 @@ else if (select_transfer != 3 && split_button_yes == 'on') {
   $('#transfer-slide-out').replaceWith("<%= j render 'mentries/split' %>");
   $('#maccount-balances').replaceWith("<%= j render 'dashboard/maccount_balances' %>");
   $('#spending-breakdown').replaceWith("<%= j render 'dashboard/spending' %>");
+  $('#pie-chart').replaceWith("<%= j render 'dashboard/piechart' %>");
   $(document).ready(function() {
       $('#split-amount')[0].innerText = "Amount: " + (select_amount * -1);
   });
 }
 else if (split_button_no == 'on') {
   alert("Number 3");
-  $('#transfer-slide-out').replaceWith("<%= j render 'mentries/postSplitForm' %>");
+  // $('#transfer-slide-out').replaceWith("<%= j render 'mentries/postSplitForm' %>");
+  $('#transfer-slide-out').replaceWith("<%= j render 'mentries/form' %>");
   $('#maccount-balances').replaceWith("<%= j render 'dashboard/maccount_balances' %>");
   $('#spending-breakdown').replaceWith("<%= j render 'dashboard/spending' %>");
-  // $(document).ready(function() {
-  $('#amount-reset')[0].innerText = "Amount: ";
-  // });
+  $('#pie-chart').replaceWith("<%= j render 'dashboard/piechart' %>");
+  // $('#amount-reset')[0].innerText = "Amount: ";
 }
 
-
-// var select_transfer;
-// $(document).on('change','#transfer', function(){
-//   select_transfer = $('#transfer').val();
-//     if (select_transfer == 3) {
-//       // alert("You selected transfer!");
-//       $('#transfer-slide-out').replaceWith("<%= j render 'mentries/transfer' %>");
-//     }
-//
-//     else {
-//       alert("What's going on here?");
-//     }
-//   });
+// $('#pie-chart').replaceWith("<%= j render 'dashboard/piechart' %>");
