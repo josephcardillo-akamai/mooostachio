@@ -1,4 +1,7 @@
 <% if user_signed_in? %>
+
+<%= pie_chart chart_array %>
+
   <h1>Dashboard</h1>
     <%= render 'mentries/form', mentry: @mentry %>
     <%= render 'dashboard/maccount_balances' %>

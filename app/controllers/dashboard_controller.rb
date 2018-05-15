@@ -5,6 +5,7 @@ class DashboardController < ApplicationController
     @mcategory = @mcategories.find_by(params[:name])
     @maccounts = Maccount.all
     @mentry = Mentry.new
+    @entry = Mentry.first
   end
 
   def show
