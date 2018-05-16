@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 2018_05_10_163633) do
 
   create_table "mentries", force: :cascade do |t|
     t.decimal "amount"
-    t.datetime "date"
+    t.date "date"
     t.text "note"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
