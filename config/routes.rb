@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :maccounts
   resources :mtypes
   resources :mentries
+  resources :searches
   devise_for :users
 
   root to: 'dashboard#index'

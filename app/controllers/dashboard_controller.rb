@@ -6,10 +6,7 @@ class DashboardController < ApplicationController
     @maccounts = Maccount.all
     @mentry = Mentry.new
     @entry = Mentry.first
-    # @date = @mentry.date
-    # @hour = @date.hour
-    # @min = @date.min
-    # @sec = @date.sec 
+    @search = Search.new
   end
 
   def show
@@ -17,6 +14,7 @@ class DashboardController < ApplicationController
     @mentry = Mentry.new(mentry_params)
     @mentry.user_id = current_user.id
     @mcategories = Mcategory.all
+    @search = Search.new
 
       if @mentry.save && @mentry.mtype.name == 'Transfer'
         respond_to do |format|
@@ -26,6 +24,9 @@ class DashboardController < ApplicationController
         respond_to do |format|
           format.js
         end
+      end
+
+      if @search.save
       end
   end
 
@@ -38,5 +39,9 @@ class DashboardController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def mentry_params
       params.require(:mentry).permit(:amount, :date, :note, :maccount_id, :mcategory_id, :mlocation_id, :mtype_id, :mstatus_id)
+    end
+
+    def search_params
+      params.require(:search).permit(:start_date, :end_date)
     end
 end
