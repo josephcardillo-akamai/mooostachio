@@ -11,15 +11,16 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link href="https://fonts.googleapis.com/css?family=Caveat|IBM+Plex+Serif|Roboto+Mono" rel="stylesheet">
-
   </head>
 
   <body>
     <header>
       <%= render 'layouts/nav'%>
     </header>
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
-      <%= yield %>
+    <div class="wrapper1">
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+        <%= yield %>
+    </div>
   </body>
 </html>

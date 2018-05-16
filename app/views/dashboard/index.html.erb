@@ -1,10 +1,24 @@
 <% if user_signed_in? %>
-  <h1>Dashboard</h1>
-    <%= render 'mentries/form', mentry: @mentry %>
-    <div id="pie-chart">
-      <%= render 'dashboard/piechart' %>
+<div>
+  <h1 class="dash-header">Dashboard</h1>
+</div>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <%= render 'mentries/form', mentry: @mentry %>
+      </div>
+      <div class="col" id="pie-chart">
+        <%= render 'dashboard/piechart' %>
+        <div class="white-space">
+
+        </div>
+        <%= render 'dashboard/maccount_balances' %>
+      </div>
     </div>
-    <%= render 'dashboard/maccount_balances' %>
+  </div>
+
+<hr>
+
   <h2>Spending Breakdown</h2>
     <%= render 'dashboard/spending' %>
   <% else %>
