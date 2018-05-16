@@ -6,6 +6,10 @@ class DashboardController < ApplicationController
     @maccounts = Maccount.all
     @mentry = Mentry.new
     @entry = Mentry.first
+    # @date = @mentry.date
+    # @hour = @date.hour
+    # @min = @date.min
+    # @sec = @date.sec 
   end
 
   def show

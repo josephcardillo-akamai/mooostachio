@@ -4,7 +4,7 @@ class CreateMentries < ActiveRecord::Migration[5.2]
       t.decimal :amount
       t.datetime :date
       t.text :note
-
+      
       t.timestamps
       t.references :mtype
       t.references :maccount

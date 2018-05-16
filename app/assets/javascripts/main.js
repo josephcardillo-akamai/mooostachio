@@ -1,3 +1,7 @@
+// $(document).ready(function() {
+//   $('#mentry_date_4i').hide();
+//   $('#mentry_date_5i').hide();
+// });
 
 var select_transfer;
 $(document).on('change','#transfer', function(){
