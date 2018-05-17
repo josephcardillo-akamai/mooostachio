@@ -7,7 +7,7 @@ class MentriesController < ApplicationController
     if params[:search] == nil
       @mentries = Mentry.all
     else
-      to_search = params[:search].downcase!
+      to_search = params[:search]
       category_id = Mcategory.where(name: to_search).first.id
       @mentries = Mentry.where(mcategory_id: category_id)
     end

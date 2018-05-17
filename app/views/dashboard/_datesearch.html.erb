@@ -4,34 +4,20 @@
       <h1 id="split-amount"></h1>
     </div>
       <h2>Search</h2>
-        <% if user_signed_in? %>
-            <%= form_with model: Search.new, url: root_path do |form| %>
-              <% if @search.errors.any? %>
-                <div id="error_explanation">
-                  <h2><%= pluralize(@search.errors.count, "error") %> prohibited this search from being saved:</h2>
-
-                  <ul>
-                  <% @search.errors.full_messages.each do |message| %>
-                    <li><%= message %></li>
-                  <% end %>
-                  </ul>
-                </div>
-              <% end %>
-
-              <div class="field">
-                <%= form.label :date, "Start Date" %>
-                <%= form.date_select :start_date %>
-              </div>
-
-              <div class="field">
-                <%= form.label :date, "End Date" %>
-                <%= form.date_select :end_date %>
-              </div>
-
-              <div class="actions">
-                <%= form.submit "Filter" %>
-              </div>
-            <% end %>
-        <% end %>
+      <%= form_tag(root_path, :method => "get", id: "search-form", class: "form-inline my-2 my-lg-0", remote: true) do %>
+        <div class="">
+          <%= label :date, "From" %>
+          <%= date_select :from_date, params[:search], class: 'form-control' %>
+        </div>
+        <div class="">
+          <%= label :date, "To" %>
+          <%= date_select :to_date, params[:search], class: 'form-control' %>
+        </div>
+        <div class="">
+          <span class="input-group-btn">
+            <%= submit_tag "Search", class: 'btn btn-outline-success my-2 my-sm-0' %>
+          </span>
+        </div>
+      <% end %>
   </div>
 </div>
