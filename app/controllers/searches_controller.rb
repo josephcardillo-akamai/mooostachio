@@ -2,13 +2,12 @@ class SearchesController < ApplicationController
 
   def new
     @search = Search.new
-    @mentries = Mentry.all
   end
 
   def create
     @search = Search.create(search_params)
     # do UJS stuff here instead of re-directing... ?
-    redirect_to @search
+    redirect_to '/'
   end
 
   def show
