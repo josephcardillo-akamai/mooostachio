@@ -1,4 +1,5 @@
 module MstatusesHelper
+
     def mstatuses_dropdown
     arr = []
     Mstatus.all.each do |mstatus|

@@ -1,4 +1,5 @@
 module McategoriesHelper
+
     def mcategories_dropdown
       arr = []
       Mcategory.all.each do |mcategory|
@@ -6,7 +7,7 @@ module McategoriesHelper
             arr << [mcategory.name, mcategory.id]
           end
         end
-      return arr
+        return arr
     end
 
     def mcategory_entries
