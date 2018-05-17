@@ -6,18 +6,60 @@ class DashboardController < ApplicationController
     @maccounts = Maccount.all
     @mentry = Mentry.new
     @entry = Mentry.first
-      puts '****************************'
-      puts params.inspect
-      # puts params[:to_date]
-      puts "#{params[:to_date]['(1i)']}"
-      puts '****************************'
-    # if params[:search] == nil
-    #   @mentries = Mentry.all
-    # else
-    #   to_search = params[:search]
-    #   category_id = Mcategory.where(name: to_search).first.id
-    #   @mentries = Mentry.where(mcategory_id: category_id)
-    # end
+    if params[:to_date] != nil && params[:from_date] != nil
+      # Set "to_date" params
+      @to_date_year = "#{params[:to_date]['(1i)']}"
+      @to_date_month = "#{params[:to_date]['(2i)']}"
+      @to_date_day = "#{params[:to_date]['(3i)']}"
+
+      # Set "from_date" params
+      @from_date_year = "#{params[:from_date]['(1i)']}"
+      @from_date_month = "#{params[:from_date]['(2i)']}"
+      @from_date_day = "#{params[:from_date]['(3i)']}"
+
+      # To convert "to_date" month to two digits if needed
+      if @to_date_month.to_i < 10
+        @to_date_month_two_digit = "0" + "#{@to_date_month}"
+      else
+        @to_date_month_two_digit = @to_date_month
+      end
+
+      # To convert "to_date" day to two digits if needed
+      if @to_date_day.to_i < 10
+        @to_date_day_two_digit = "0" + "#{@to_date_day}"
+      else
+        @to_date_day_two_digit = @to_date_day
+      end
+
+
+      # To convert "to_date" month to two digits if needed
+      if @from_date_month.to_i < 10
+        @from_date_month_two_digit = "0" + "#{@from_date_month}"
+      else
+        @from_date_month_two_digit = @from_date_month
+      end
+
+      # To convert "from_date" day from two digits if needed
+      if @from_date_day.to_i < 10
+        @from_date_day_two_digit = "0" + "#{@from_date_day}"
+      else
+        @from_date_day_two_digit = @from_date_day
+      end
+
+
+      # To convert "from_date" into correct format
+      @from_date = "#{@from_date_year}-#{@from_date_month_two_digit}-#{@from_date_day}"
+
+      # To convert "to_date" into correct format
+      @to_date = "#{@to_date_year}-#{@to_date_month_two_digit}-#{@to_date_day}"
+
+
+    end
+
+    puts '****************************'
+    puts @from_date
+    puts @to_date
+    puts '****************************'
   end
 
   def show
