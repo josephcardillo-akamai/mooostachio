@@ -1,13 +1,22 @@
 class DashboardController < ApplicationController
   def index
+    @mentries = Mentry.all
+    @mcategories = Mcategory.all
+    @mcategory = @mcategories.find_by(params[:name])
+    @maccounts = Maccount.all
+    @mentry = Mentry.new
+    @entry = Mentry.first
+    puts '****************************'
+    puts params.inspect
+    puts '****************************'
+
+    if params[:search] == nil
       @mentries = Mentry.all
-      @mcategories = Mcategory.all
-      @mcategory = @mcategories.find_by(params[:name])
-      @maccounts = Maccount.all
-      @mentry = Mentry.new
-      @entry = Mentry.first
-      @searches = Search.all
-      @search = Search.new
+    else
+      to_search = params[:search]
+      category_id = Mcategory.where(name: to_search).first.id
+      @mentries = Mentry.where(mcategory_id: category_id)
+    end
   end
 
   def show
@@ -25,6 +34,10 @@ class DashboardController < ApplicationController
           format.js
         end
       end
+
+    puts '****************************'
+    puts params.inspect
+    puts '****************************'
   end
 
   private
@@ -37,4 +50,5 @@ class DashboardController < ApplicationController
     def mentry_params
       params.require(:mentry).permit(:amount, :date, :note, :maccount_id, :mcategory_id, :mlocation_id, :mtype_id, :mstatus_id)
     end
+
 end
