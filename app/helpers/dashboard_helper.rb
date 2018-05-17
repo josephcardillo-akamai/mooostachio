@@ -50,4 +50,23 @@ module DashboardHelper
     return arr
   end
 
+  def cat_not_zero_filtered
+    @mcategories = Mcategory.all
+    arr = []
+    @mcategories.each do |mcategory|
+      total = 0
+      mcategory.mentries.each do |entry|
+        if entry.mtype.name != 'transfer' && entry.mcategory.name != 'paycheck'
+          if entry.date.to_s > @from_date && entry.date.to_s < @to_date
+            total += entry.amount
+          end
+        end
+      end
+      if total != 0
+        arr.push(mcategory)
+      end
+    end
+    return arr
+  end
+
 end

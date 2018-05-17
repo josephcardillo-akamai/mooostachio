@@ -9,7 +9,7 @@
         </tr>
       </thead>
       <tbody class="table-row">
-          <% cat_not_zero.each do |mcategory| %>
+          <% cat_not_zero_filtered.each do |mcategory| %>
             <tr>
                 <th scope="row">
                   <%= link_to mcategory.name, mcategory_path(mcategory.id) %>
@@ -18,7 +18,9 @@
                   <% mcategory.mentries.each do |entry| %>
                     <% if entry.mtype.name != 'transfer' %>
                       <% if entry.mcategory.name != 'paycheck' %>
-                    <% total += entry.amount %>
+                        <% if entry.date.to_s > @from_date && entry.date.to_s < @to_date %>
+                          <% total += entry.amount %>
+                        <% end %>
                       <% end %>
                     <% end %>
                   <% end %>
