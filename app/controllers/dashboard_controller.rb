@@ -53,7 +53,6 @@ class DashboardController < ApplicationController
       # To convert "to_date" into correct format
       @to_date = "#{@to_date_year}-#{@to_date_month_two_digit}-#{@to_date_day}"
 
-
     end
 
     puts '****************************'
