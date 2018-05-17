@@ -8,4 +8,5 @@ class Maccount < ApplicationRecord
   def downcase_fields
     self.name.downcase!
   end
+  
 end

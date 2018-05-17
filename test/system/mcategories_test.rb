@@ -12,32 +12,32 @@ class McategoriesTest < ApplicationSystemTestCase
 
   test "creating a Mcategory" do
     visit mcategories_url
-    click_on "New Mcategory"
+    click_on "New Category"
 
     fill_in "Name", with: @mcategory.name
-    click_on "Create Mcategory"
+    click_on "Create Category"
 
-    assert_text "Mcategory was successfully created"
+    assert_text "Category was successfully created"
     click_on "Back"
   end
 
-  test "updating a Mcategory" do
+  test "updating a Category" do
     visit mcategories_url
     click_on "Edit", match: :first
 
     fill_in "Name", with: @mcategory.name
-    click_on "Update Mcategory"
+    click_on "Update Category"
 
-    assert_text "Mcategory was successfully updated"
+    assert_text "Category was successfully updated"
     click_on "Back"
   end
 
-  test "destroying a Mcategory" do
+  test "destroying a Category" do
     visit mcategories_url
     page.accept_confirm do
       click_on "Destroy", match: :first
     end
 
-    assert_text "Mcategory was successfully destroyed"
+    assert_text "Category was successfully destroyed"
   end
 end

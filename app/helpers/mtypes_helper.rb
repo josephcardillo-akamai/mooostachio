@@ -1,4 +1,5 @@
 module MtypesHelper
+
     def mtypes_dropdown
     arr = []
     Mtype.all.each do |mtype|

@@ -1,4 +1,5 @@
 module MaccountsHelper
+
     def maccounts_dropdown
     arr = []
     Maccount.all.each do |maccount|
