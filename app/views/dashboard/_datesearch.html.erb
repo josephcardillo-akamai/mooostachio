@@ -4,7 +4,7 @@
       <h1 id="split-amount"></h1>
     </div>
       <h2>Search</h2>
-      <%= form_tag(root_path, :method => "get", id: "search-form", class: "form-inline my-2 my-lg-0") do %>
+      <%= form_tag(root_path, :method => "get", id: "search-form", class: "form-inline my-2 my-lg-0", remote: true) do %>
         <div class="">
           <%= label :date, "From" %>
           <%= date_select :from_date, params[:search], class: 'form-control' %>

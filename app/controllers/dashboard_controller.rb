@@ -6,17 +6,18 @@ class DashboardController < ApplicationController
     @maccounts = Maccount.all
     @mentry = Mentry.new
     @entry = Mentry.first
-    puts '****************************'
-    puts params.inspect
-    puts '****************************'
-
-    if params[:search] == nil
-      @mentries = Mentry.all
-    else
-      to_search = params[:search]
-      category_id = Mcategory.where(name: to_search).first.id
-      @mentries = Mentry.where(mcategory_id: category_id)
-    end
+      puts '****************************'
+      puts params.inspect
+      # puts params[:to_date]
+      puts "#{params[:to_date]['(1i)']}"
+      puts '****************************'
+    # if params[:search] == nil
+    #   @mentries = Mentry.all
+    # else
+    #   to_search = params[:search]
+    #   category_id = Mcategory.where(name: to_search).first.id
+    #   @mentries = Mentry.where(mcategory_id: category_id)
+    # end
   end
 
   def show
