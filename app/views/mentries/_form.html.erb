@@ -40,27 +40,27 @@
 
               <div class="field">
                 <%= form.label :mstatus, "Status" %>
-                <%= form.select :mstatus_id, mstatuses_dropdown %>
+                <%= form.select :mstatus_id, mstatuses_dropdown, include_blank: :true %>
               </div>
 
               <div class="field">
                 <%= form.label :mtype, "Type" %>
-                <%= form.select :mtype_id, mtypes_dropdown, {}, id: 'transfer' %>
+                <%= form.select :mtype_id, mtypes_dropdown, include_blank: :true, id: 'transfer' %>
               </div>
 
               <div class="field">
                 <%= form.label :maccount, "Account" %>
-                <%= form.select :maccount_id, maccounts_dropdown %>
+                <%= form.select :maccount_id, maccounts_dropdown, include_blank: :true %>
               </div>
 
               <div class="field">
                 <%= form.label :mcategory, "Category" %>
-                <%= form.select :mcategory_id, mcategories_dropdown %>
+                <%= form.select :mcategory_id, mcategories_dropdown, include_blank: :true %>
               </div>
 
               <div class="field">
                 <%= form.label :mlocation, "Location" %>
-                <%= form.select :mlocation_id, mlocations_dropdown %>
+                <%= form.select :mlocation_id, mlocations_dropdown, include_blank: :true %>
               </div>
 
               <div class="field">
@@ -69,7 +69,7 @@
               </div>
 
               <div class="actions">
-                <%= form.submit "Create Entry", id: "transfer-btn" %>
+                <%= form.submit "Create Entry", id: "transfer-btn", class: "btn btn-outline-success my-2 my-sm-0" %>
               </div>
             <% end %>
         <% end %>

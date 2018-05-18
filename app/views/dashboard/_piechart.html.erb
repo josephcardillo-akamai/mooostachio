@@ -1,10 +1,11 @@
 <div id="pie-chart" class="form-container1">
   <div class="form-container2">
     <h2>Spending Breakdown</h1>
-      <% if current_user.mentries = [] %>
-        <%= pie_chart chart_array_zero %>
-      <% else %>
+      <% if current_user.mentries.exists? %>
         <%= pie_chart chart_array %>
+      <% else %>
+
+        <%= pie_chart chart_array_zero %>
       <% end %>
   </div>
 </div>

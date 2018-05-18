@@ -11,7 +11,6 @@ class User < ApplicationRecord
   has_many :mlocations
   has_many :mtypes
   has_many :mstatuses
-  has_many :entries, through: :mentries, source: :user
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -74,7 +73,7 @@ class User < ApplicationRecord
   end
 
   def create_locations
-
+    self.mlocations.create(name:"N/A")
     self.mlocations.create(name:"Amazon")
     self.mlocations.create(name:"Auto Repair Shop")
     self.mlocations.create(name:"Bank")

@@ -16,8 +16,6 @@ module DashboardHelper
 
     categories_arr = []
     @categories.each do |category|
-      if current_user.id == category.user_id
-
           subarray = []
           subarray.push(category.name)
           total = 0
@@ -34,8 +32,6 @@ module DashboardHelper
           end
         end
         return categories_arr
-
-      end
   end
 
 
@@ -49,17 +45,17 @@ module DashboardHelper
     @mcategories = Mcategory.all
     arr = []
     @mcategories.each do |mcategory|
-      total = 0
-      mcategory.mentries.each do |entry|
-        if entry.mtype.name != 'transfer' && entry.mcategory.name != 'paycheck'
-          total += entry.amount
+          total = 0
+          mcategory.mentries.each do |entry|
+            if entry.mtype.name != 'transfer' && entry.mcategory.name != 'paycheck'
+              total += entry.amount
+            end
+          end
+          if total != 0
+            arr.push(mcategory)
+          end
         end
-      end
-      if total != 0
-        arr.push(mcategory)
-      end
-    end
-    return arr
+        return arr
   end
 
   def cat_not_zero_filtered
@@ -80,5 +76,6 @@ module DashboardHelper
     end
     return arr
   end
+
 
 end
