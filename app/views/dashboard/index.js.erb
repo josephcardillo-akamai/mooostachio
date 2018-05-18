@@ -1,2 +1,2 @@
-alert('hi');
-$('#spending-breakdown').replaceWith("<%= j render 'dashboard/spending_filtered' %>");
+alert('<%= j @mentry.errors.full_messages[0] %>');
+$('.notice').html('<%= j render "dashboard/errors" %>')

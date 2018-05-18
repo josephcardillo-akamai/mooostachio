@@ -67,22 +67,22 @@ class DashboardController < ApplicationController
     @mentry.user_id = current_user.id
     @mcategories = Mcategory.all
 
-    if @mentry.mtype.name = "debit"
-      @mentry.amount = @mentry.amount * -1
-    end
-
-    if @mentry.mtype.name = "transfer from"
-      @mentry.amount = @mentry.amount * -1
-    end
-
     if @mentry.save
+      if @mentry.mtype.name == "debit"
+        @mentry.amount = @mentry.amount * -1
+      end
+
+      if @mentry.mtype.name == "transfer from"
+        @mentry.amount = @mentry.amount * -1
+      end
+
       respond_to do |format|
         format.js
       end
-    # else
-    #   respond_to do |format|
-    #     format.js
-    #   end
+
+    else
+      
+      render :index
     end
 
     puts '****************************'
