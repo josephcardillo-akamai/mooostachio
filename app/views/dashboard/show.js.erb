@@ -3,7 +3,7 @@ $('.close-error-modal').click(function() {
 });
 
 // alert('hi!')
-var select_transfer = $('#transfer').val();
+var select_transfer = $('#mentry_mtype_id').val();
 var select_amount = $('#mentry_amount').val();
 var select_status = $('#mentry_mstatus_id').val();
 var select_account = $('#mentry_maccount_id').val();
@@ -12,7 +12,7 @@ var select_location = $('#mentry_mlocation_id').val();
 
 // New Entry Logic
 // If transferring from one account/category to another / and not splitting:
-if (select_transfer == 3 && split_button_no == "true") {
+if (select_transfer == 2 && split_button_no == "true") {
   alert("Number 1");
   $('#transfer-slide-out').replaceWith("<%= j render 'mentries/transfer' %>");
   $('#mentry_amount').val(select_amount * -1);
