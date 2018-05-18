@@ -4,16 +4,18 @@
       <h1 id="split-amount"></h1>
     </div>
       <h2>Search</h2>
-      <%= form_tag(root_path, :method => "get", id: "search-form", class: "form-inline my-2 my-lg-0", remote: true) do %>
+      <%= form_tag(root_path, :method => "get", id: "search-form", class: "my-2 my-lg-0", remote: true) do %>
         <div class="">
-          <%= label :date, "From" %>
+          <%= label :date, "From:" %>
           <%= date_select :from_date, params[:search], class: 'form-control' %>
         </div>
         <div class="">
-          <%= label :date, "To" %>
+          <%= label :date, "To:" %>
           <%= date_select :to_date, params[:search], class: 'form-control' %>
         </div>
-        <div class="">
+        <div class="white-space">
+        </div>
+        <div>
           <span class="input-group-btn">
             <%= submit_tag "Search", class: 'btn btn-outline-success my-2 my-sm-0' %>
           </span>
