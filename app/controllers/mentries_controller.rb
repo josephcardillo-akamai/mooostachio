@@ -33,7 +33,6 @@ class MentriesController < ApplicationController
   def create
     @mentry = Mentry.new(mentry_params)
     @mentry.user_id = current_user.id
-    @mentry.split = true
     respond_to do |format|
       if @mentry.save && @mentry.mtype.name == 'Transfer'
         format.html { redirect_to new_mentry_path, notice: 'Mentry was successfully created.' }

@@ -28,10 +28,10 @@
 
                 <p>
                   Split:
-                    <%= form.label :yes %>
-                    <%= form.radio_button :split, "Yes" %>
-                    <%= form.label :no %>
-                    <%= form.radio_button :split, "No", checked: true %>
+                    <%= form.label :yes, "Yes" %>
+                    <%= form.radio_button :split, true %>
+                    <%= form.label :no, "No" %>
+                    <%= form.radio_button :split, false, checked: true %>
                 </p>
               </div>
 
