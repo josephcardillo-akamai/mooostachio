@@ -1,3 +1,7 @@
+$('.close-error-modal').click(function() {
+    $('.modal').modal('hide');
+});
+
 // alert('hi!')
 var select_transfer = $('#transfer').val();
 var select_amount = $('#mentry_amount').val();
@@ -22,7 +26,7 @@ if (select_transfer == 3 && split_button_no == "true") {
 }
 // If not transferring / not splitting:
 else if (select_transfer != 3  && split_button_no == "true") {
-  alert("number 2");
+  // alert("number 2");
   $('#mentry_amount').val(0);
   // $('#transfer-btn').replaceWith('');
   // $('#transfer-slide-out').replaceWith("<%= j render 'mentries/form' %>");

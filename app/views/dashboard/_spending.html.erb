@@ -11,7 +11,6 @@
       <tbody class="table-row">
           <% cat_not_zero.each do |mcategory| %>
             <tr>
-              <% if mcategory.name != 'n/a' %>
                 <th scope="row">
                   <%= link_to mcategory.name, mcategory_path(mcategory.id) %>
                 </th>
@@ -28,7 +27,7 @@
                 <th scope="row">
                     <%= number_to_currency(total * -1) %>
                 </th>
-              <% end %>
+              
             <% end %>
             </tr>
       </tbody>
