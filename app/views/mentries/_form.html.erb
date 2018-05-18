@@ -24,10 +24,14 @@
               </div>
 
               <div class="">
+
+
                 <p>
                   Split:
-                    <input type="radio" name="split" id="split-yes"><span> Yes</span>
-                    <input type="radio" name="split" id="split-no"><span> No</span>
+                    <%= form.label :yes %>
+                    <%= form.radio_button :split, "Yes" %>
+                    <%= form.label :no %>
+                    <%= form.radio_button :split, "No", checked: true %>
                 </p>
               </div>
 
