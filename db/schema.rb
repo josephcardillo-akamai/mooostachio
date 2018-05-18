@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_16_193228) do
+ActiveRecord::Schema.define(version: 2018_05_18_144504) do
 
   create_table "maccounts", force: :cascade do |t|
     t.string "name"
@@ -40,6 +40,8 @@ ActiveRecord::Schema.define(version: 2018_05_16_193228) do
     t.integer "mcategory_id"
     t.integer "mstatus_id"
     t.integer "user_id"
+    t.boolean "split"
+    t.integer "entry_id"
     t.index ["maccount_id"], name: "index_mentries_on_maccount_id"
     t.index ["mcategory_id"], name: "index_mentries_on_mcategory_id"
     t.index ["mlocation_id"], name: "index_mentries_on_mlocation_id"
