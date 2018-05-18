@@ -1,70 +1,77 @@
-  <div id="transfer-slide-out" class="form-container2 form-font">
-  <h2>New Entry</h2>
-    <% if user_signed_in? %>
-        <%= form_with model: Mentry.new, url: root_path do |form| %>
-          <% if @mentry.errors.any? %>
-            <div id="error_explanation">
-              <h2><%= pluralize(@mentry.errors.count, "error") %> prohibited this mentry from being saved:</h2>
+<div id="transfer-slide-out" class="form-container1 form-font">
+  <div class="form-container2">
+    <div>
+      <h1 id="split-amount"></h1>
+    </div>
+      <h2>New Entry</h2>
+        <% if user_signed_in? %>
+            <%= form_with model: Mentry.new, url: root_path do |form| %>
+              <% if @mentry.errors.any? %>
+                <div id="error_explanation">
+                  <h2><%= pluralize(@mentry.errors.count, "error") %> prohibited this mentry from being saved:</h2>
 
-              <ul>
-              <% @mentry.errors.full_messages.each do |message| %>
-                <li><%= message %></li>
+                  <ul>
+                  <% @mentry.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                  <% end %>
+                  </ul>
+                </div>
               <% end %>
-              </ul>
-            </div>
-          <% end %>
 
-          <div class="field">
-            <%= form.label :amount %>
-            <%= form.text_field :amount %>
-          </div>
+              <div class="field">
+                <%= form.label :amount %>
+                <%= form.text_field :amount, class: 'first-amount' %>
+              </div>
 
-          <div class="">
-            <p>
-              Split:
-                <input type="radio" name="split" id="split-yes"><span> Yes</span>
-                <input type="radio" name="split" id="split-no"><span> No</span>
-            </p>
-          </div>
+              <div>
+                <p>
+                  Split:
+                    <%= form.label :yes, "Yes" %>
+                    <%= form.radio_button :split, true %>
+                    <%= form.label :no, "No" %>
+                    <%= form.radio_button :split, false, checked: true %>
+                </p>
+              </div>
 
-          <div class="field">
-            <%= form.label :date %>
-            <%= form.date_select :date %>
-          </div>
+              <div class="field">
+                <%= form.label :date %>
+                <%= form.date_select :date %>
+              </div>
 
-          <div class="field">
-            <%= form.label :mstatus, "Status" %>
-            <%= form.select :mstatus_id, mstatuses_dropdown %>
-          </div>
+              <div class="field">
+                <%= form.label :mstatus, "Status" %>
+                <%= form.select :mstatus_id, mstatuses_dropdown %>
+              </div>
 
-          <div class="field">
-            <%= form.label :mtype, "Type" %>
-            <%= form.select :mtype_id, mtypes_dropdown, {}, id: 'transfer' %>
-          </div>
+              <div class="field">
+                <%= form.label :mtype, "Type" %>
+                <%= form.select :mtype_id, mtypes_dropdown, {}, id: 'transfer' %>
+              </div>
 
-          <div class="field">
-            <%= form.label :maccount, "To Account" %>
-            <%= form.select :maccount_id, maccounts_dropdown %>
-          </div>
+              <div class="field">
+                <%= form.label :maccount, "Account" %>
+                <%= form.select :maccount_id, maccounts_dropdown %>
+              </div>
 
-          <div class="field">
-            <%= form.label :mcategory, "To Category" %>
-            <%= form.select :mcategory_id, mcategories_dropdown %>
-          </div>
+              <div class="field">
+                <%= form.label :mcategory, "Category" %>
+                <%= form.select :mcategory_id, mcategories_dropdown %>
+              </div>
 
-          <div class="field">
-            <%= form.label :mlocation, "To Location" %>
-            <%= form.select :mlocation_id, mlocations_dropdown %>
-          </div>
+              <div class="field">
+                <%= form.label :mlocation, "Location" %>
+                <%= form.select :mlocation_id, mlocations_dropdown %>
+              </div>
 
-          <div class="field">
-            <%= form.label :note %>
-            <%= form.text_area :note %>
-          </div>
+              <div class="field">
+                <%= form.label :note %>
+                <%= form.text_area :note %>
+              </div>
 
-          <div class="actions">
-            <%= form.submit "Transfer Money" %>
-          </div>
-      <% end %>
-    <% end %>
+              <div class="actions">
+                <%= form.submit "Complete Transfer", id: "transfer-btn" %>
+              </div>
+            <% end %>
+        <% end %>
   </div>
+</div>
