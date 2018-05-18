@@ -16,17 +16,16 @@ if (select_transfer == 3) {
   $('#mentry_mcategory_id').val(select_category);
   $('#mentry_mlocation_id').val(select_location);
 }
-else if (select_transfer != 3 && split_button_yes == 'on') {
+else if (select_transfer != 3  && split_button_no == "true") {
   alert("number 2");
-  split_button_yes = 'off';
-  $('#transfer-btn').replaceWith('');
-  $('#transfer-slide-out').replaceWith("<%= j render 'mentries/split' %>");
+  // $('#transfer-btn').replaceWith('');
+  // $('#transfer-slide-out').replaceWith("<%= j render 'mentries/split' %>");
   $('#maccount-balances').replaceWith("<%= j render 'dashboard/maccount_balances' %>");
   $('#spending-breakdown').replaceWith("<%= j render 'dashboard/spending' %>");
   $('#pie-chart').replaceWith("<%= j render 'dashboard/piechart' %>");
-  $(document).ready(function() {
-      $('#split-amount')[0].innerText = "Amount: " + (select_amount * -1);
-  });
+  // $(document).ready(function() {
+  //     $('#split-amount')[0].innerText = "Amount: " + (select_amount * -1);
+  // });
 }
 else if (split_button_no == 'on') {
   alert("Number 3");

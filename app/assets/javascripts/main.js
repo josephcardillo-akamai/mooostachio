@@ -1,17 +1,22 @@
-var split_button_yes = $('#mentry_split_yes').val();
-var split_button_no = $('#mentry_split_no').val();
-
-
-$(document).on('change','#mentry_split_yes', function(){
-    split_button_yes = true;
-    split_button_no = false;
-    $( "#mentry_split_no" ).prop( "checked", false );
+var split_button_yes;
+var split_button_no;
+$(document).ready(function() {
+  split_button_yes = $('#mentry_split_false').val();
+  split_button_no = $('#mentry_split_true').val();
 });
 
-$(document).on('change','#mentry_split_no', function(){
-    split_button_no = true;
-    split_button_yes = false;
-    $( "#mentry_split_yes" ).prop( "checked", false );
+
+
+$(document).on('change','#mentry_split_true', function(){
+    split_button_yes = "true";
+    split_button_no = "false";
+    $( "#mentry_split_false" ).prop( "checked", false );
+});
+
+$(document).on('change','#mentry_split_false', function(){
+    split_button_no = "true";
+    split_button_yes = "false";
+    $( "#mentry_split_true" ).prop( "checked", false );
 });
 
 

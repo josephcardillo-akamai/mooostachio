@@ -67,14 +67,14 @@ class DashboardController < ApplicationController
     @mentry.user_id = current_user.id
     @mcategories = Mcategory.all
 
-      if @mentry.save && @mentry.mtype.name == 'Transfer'
+      if @mentry.save
         respond_to do |format|
           format.js
         end
-      else
-        respond_to do |format|
-          format.js
-        end
+      # else
+      #   respond_to do |format|
+      #     format.js
+      #   end
       end
 
     puts '****************************'
