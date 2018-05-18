@@ -49,17 +49,19 @@ module DashboardHelper
     @mcategories = Mcategory.all
     arr = []
     @mcategories.each do |mcategory|
-      total = 0
-      mcategory.mentries.each do |entry|
-        if entry.mtype.name != 'transfer' && entry.mcategory.name != 'paycheck'
-          total += entry.amount
+      if mcategory.user_id == current_user.id
+          total = 0
+          mcategory.mentries.each do |entry|
+            if entry.mtype.name != 'transfer' && entry.mcategory.name != 'paycheck'
+              total += entry.amount
+            end
+          end
+          if total != 0
+            arr.push(mcategory)
+          end
         end
+        return arr
       end
-      if total != 0
-        arr.push(mcategory)
-      end
-    end
-    return arr
   end
 
   def cat_not_zero_filtered

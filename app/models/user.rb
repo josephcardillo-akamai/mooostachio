@@ -74,7 +74,7 @@ class User < ApplicationRecord
   end
 
   def create_locations
-
+    self.mlocations.create(name:"N/A")
     self.mlocations.create(name:"Amazon")
     self.mlocations.create(name:"Auto Repair Shop")
     self.mlocations.create(name:"Bank")
