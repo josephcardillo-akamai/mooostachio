@@ -1,7 +1,24 @@
-// $(document).ready(function() {
-//   $('#mentry_date_4i').hide();
-//   $('#mentry_date_5i').hide();
-// });
+var split_button_yes;
+var split_button_no;
+$(document).ready(function() {
+  split_button_yes = $('#mentry_split_false').val();
+  split_button_no = $('#mentry_split_true').val();
+});
+
+
+
+$(document).on('change','#mentry_split_true', function(){
+    split_button_yes = "true";
+    split_button_no = "false";
+    $( "#mentry_split_false" ).prop( "checked", false );
+});
+
+$(document).on('change','#mentry_split_false', function(){
+    split_button_no = "true";
+    split_button_yes = "false";
+    $( "#mentry_split_true" ).prop( "checked", false );
+});
+
 
 var select_transfer;
 $(document).on('change','#transfer', function(){
@@ -16,18 +33,18 @@ $(document).on('change','#transfer', function(){
   }
 });
 
-var split_button_yes = $('#split-yes').val();
-var split_button_no = $('#split-no').val();
-
-$(document).on('change','#split-no', function(){
-    split_button_no = "on";
-    split_button_yes = "off";
-});
-
-$(document).on('change','#split-yes', function(){
-    split_button_yes = "on";
-    split_button_no = "off";
-});
+// var split_button_yes = $('#split-yes').val();
+// var split_button_no = $('#split-no').val();
+//
+// $(document).on('change','#split-no', function(){
+//     split_button_no = "on";
+//     split_button_yes = "off";
+// });
+//
+// $(document).on('change','#split-yes', function(){
+//     split_button_yes = "on";
+//     split_button_no = "off";
+// });
 
 var select_amount;
 $(document).on('input','.first_amount', function(){
@@ -54,11 +71,11 @@ $(document).on('change','#mentry_mlocation_id', function(){
   select_location = $('#mentry_mlocation_id').val();
 });
 
-var split_amount;
+// var split_amount;
 
-var new_amount;
-$(document).on('input','.new-amount', function(){
-  split_amount = $('.new-amount').val();
-  new_amount = (select_amount - split_amount);
-  $('#split-amount')[0].innerText = "Amount: " + (new_amount * -1);
-});
+// var new_amount;
+// $(document).on('input','.new-amount', function(){
+//   split_amount = $('.new-amount').val();
+//   new_amount = (select_amount - split_amount);
+//   $('#split-amount')[0].innerText = "Amount: " + (new_amount * -1);
+// });

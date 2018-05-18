@@ -11,6 +11,7 @@ class User < ApplicationRecord
   has_many :mlocations
   has_many :mtypes
   has_many :mstatuses
+  has_many :entries, through: :mentries, source: :user
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -63,8 +64,8 @@ class User < ApplicationRecord
 
   def create_types
     self.mtypes.create(name:"Debit")
-    self.mtypes.create(name:"Credit")
-    self.mtypes.create(name:"Transfer")
+    self.mtypes.create(name:"Transfer From")
+    self.mtypes.create(name:"Transfer To")
     self.mtypes.create(name:"Withdrawal")
     self.mtypes.create(name:"Deposit")
     self.mtypes.create(name:"Refund")

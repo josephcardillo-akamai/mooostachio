@@ -23,11 +23,13 @@
                 <%= form.text_field :amount, class: 'first-amount' %>
               </div>
 
-              <div class="">
+              <div>
                 <p>
                   Split:
-                    <input type="radio" name="split" id="split-yes"><span> Yes</span>
-                    <input type="radio" name="split" id="split-no"><span> No</span>
+                    <%= form.label :yes, "Yes" %>
+                    <%= form.radio_button :split, true %>
+                    <%= form.label :no, "No" %>
+                    <%= form.radio_button :split, false, checked: true %>
                 </p>
               </div>
 

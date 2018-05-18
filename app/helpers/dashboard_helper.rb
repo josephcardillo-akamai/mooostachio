@@ -11,27 +11,39 @@ module DashboardHelper
   end
 
   def chart_array
+
     @categories = Mcategory.all
 
     categories_arr = []
     @categories.each do |category|
-      subarray = []
-      subarray.push(category.name)
-      total = 0
-      category.mentries.each do |entry|
-        if entry.mtype.name != 'transfer'
-          if entry.mcategory.name != 'paycheck'
-        total += entry.amount
+      if current_user.id == category.user_id
+
+          subarray = []
+          subarray.push(category.name)
+          total = 0
+          category.mentries.each do |entry|
+            if entry.mtype.name != 'transfer'
+              if entry.mcategory.name != 'paycheck'
+            total += entry.amount
+              end
+            end
+          end
+          if total != 0
+            subarray.push(total * -1)
+            categories_arr.push(subarray)
           end
         end
+        return categories_arr
+
       end
-      if total != 0
-        subarray.push(total * -1)
-        categories_arr.push(subarray)
-      end
-    end
-    return categories_arr
   end
+
+
+  def chart_array_zero
+    arr = [['n/a', 1]]
+    return arr
+  end
+
 
   def cat_not_zero
     @mcategories = Mcategory.all

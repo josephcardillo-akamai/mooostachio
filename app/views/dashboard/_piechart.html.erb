@@ -1,6 +1,10 @@
-<div id="transfer-slide-out" class="form-container1">
+<div id="pie-chart" class="form-container1">
   <div class="form-container2">
     <h2>Spending Breakdown</h1>
-    <%= pie_chart chart_array %>
+      <% if current_user.mentries = [] %>
+        <%= pie_chart chart_array_zero %>
+      <% else %>
+        <%= pie_chart chart_array %>
+      <% end %>
   </div>
 </div>
