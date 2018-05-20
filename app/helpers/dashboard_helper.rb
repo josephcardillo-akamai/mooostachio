@@ -20,9 +20,13 @@ module DashboardHelper
           subarray.push(category.name)
           total = 0
           category.mentries.each do |entry|
-            if entry.mtype.name != 'transfer'
-              if entry.mcategory.name != 'paycheck'
-            total += entry.amount
+            if entry.mtype.name != 'transfer from'
+              if entry.mtype.name != 'transfer to'
+                if entry.mcategory.name != 'paycheck'
+                  if entry.mtype.name != 'deposit'
+                    total += entry.amount
+                  end
+                end
               end
             end
           end

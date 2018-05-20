@@ -63,6 +63,7 @@ class User < ApplicationRecord
 
   def create_types
     self.mtypes.create(name:"Debit")
+    self.mtypes.create(name:"Debit")
     self.mtypes.create(name:"Transfer From")
     self.mtypes.create(name:"Transfer To")
     self.mtypes.create(name:"Withdrawal")
