@@ -68,6 +68,24 @@ class DashboardController < ApplicationController
     @mentry.user_id = current_user.id
     @mcategories = Mcategory.all
 
+    if @mentry
+      if @mentry.mtype.name == 'debit'
+        @mentry.amount = @mentry.amount * -1
+      elsif
+        @mentry.mtype.name == 'transfer from'
+        @mentry.amount = @mentry.amount * -1
+      elsif
+        @mentry.mtype.name == 'withdrawal'
+        @mentry.amount = @mentry.amount * -1
+      elsif
+        @mentry.mtype.name == 'payment'
+        @mentry.amount = @mentry.amount * -1
+      elsif
+        @mentry.mtype.name == 'check'
+        @mentry.amount = @mentry.amount * -1
+      end
+    end
+
     if @mentry.save
       puts '****************************'
       puts params.inspect

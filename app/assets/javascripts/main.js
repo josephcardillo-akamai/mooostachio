@@ -29,7 +29,7 @@ $(document).on('change','#mentry_mtype_id', function(){
   }
   else {
     // alert("What's going on here?");
-    $('#transfer-btn').replaceWith("<input type='submit' name='commit' value='Create Entry' id='transfer-btn' data-disable-with='Creating Entry...'>");
+    $('#transfer-btn').replaceWith("<input type='submit' name='commit' value='Create Entry' id='transfer-btn' class='btn btn-outline-success my-2 my-sm-0' data-disable-with='Creating Entry...'>");
   }
 });
 
