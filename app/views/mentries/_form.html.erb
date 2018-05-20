@@ -1,7 +1,7 @@
 <div id="transfer-slide-out" class="form-container1 form-font">
   <div class="form-container2">
     <div>
-      <h1 id="split-amount"></h1>
+      <h1>Amount: <span id="split-amount"></span></h1>
     </div>
       <h2>New Entry</h2>
         <% if user_signed_in? %>
@@ -17,57 +17,57 @@
                   </ul>
                 </div>
               <% end %>
-
-              <div class="field">
-                <%= form.label :amount %>
-                <%= form.text_field :amount, class: 'first-amount' %>
-              </div>
-
-              <div>
-                <p>
-                  Split:
-                    <%= form.label :yes, "Yes" %>
-                    <%= form.radio_button :split, true %>
-                    <%= form.label :no, "No" %>
-                    <%= form.radio_button :split, false, checked: true %>
-                </p>
-              </div>
-
               <div id="split-entry">
-                <div class="field">
-                  <%= form.label :date %>
-                  <%= form.date_select :date %>
-                </div>
+                  <div class="field">
+                    <%= form.label :amount %>
+                    <%= form.text_field :amount, class: 'first-amount' %>
+                  </div>
 
-                <div class="field">
-                  <%= form.label :mstatus, "Status" %>
-                  <%= form.select :mstatus_id, mstatuses_dropdown, include_blank: :true %>
-                </div>
+                  <div>
+                    <p>
+                      Split:
+                        <%= form.label :yes, "Yes" %>
+                        <%= form.radio_button :split, true %>
+                        <%= form.label :no, "No" %>
+                        <%= form.radio_button :split, false, checked: true %>
+                    </p>
+                  </div>
 
-                <div class="field">
-                  <%= form.label :mtype, "Type" %>
-                  <%= form.select :mtype_id, mtypes_dropdown, include_blank: :true, id: 'transfer' %>
-                </div>
 
-                <div class="field">
-                  <%= form.label :maccount, "Account" %>
-                  <%= form.select :maccount_id, maccounts_dropdown, include_blank: :true %>
-                </div>
+                  <div class="field">
+                    <%= form.label :date %>
+                    <%= form.date_select :date %>
+                  </div>
 
-                <div class="field">
-                  <%= form.label :mcategory, "Category" %>
-                  <%= form.select :mcategory_id, mcategories_dropdown, include_blank: :true %>
-                </div>
+                  <div class="field">
+                    <%= form.label :mstatus, "Status" %>
+                    <%= form.select :mstatus_id, mstatuses_dropdown, include_blank: :true %>
+                  </div>
 
-                <div class="field">
-                  <%= form.label :mlocation, "Location" %>
-                  <%= form.select :mlocation_id, mlocations_dropdown, include_blank: :true %>
-                </div>
+                  <div class="field">
+                    <%= form.label :mtype, "Type" %>
+                    <%= form.select :mtype_id, mtypes_dropdown, include_blank: :true, id: 'transfer' %>
+                  </div>
 
-                <div class="field">
-                  <%= form.label :note %>
-                  <%= form.text_area :note %>
-                </div>
+                  <div class="field">
+                    <%= form.label :maccount, "Account" %>
+                    <%= form.select :maccount_id, maccounts_dropdown, include_blank: :true %>
+                  </div>
+
+                  <div class="field">
+                    <%= form.label :mcategory, "Category" %>
+                    <%= form.select :mcategory_id, mcategories_dropdown, include_blank: :true %>
+                  </div>
+
+                  <div class="field">
+                    <%= form.label :mlocation, "Location" %>
+                    <%= form.select :mlocation_id, mlocations_dropdown, include_blank: :true %>
+                  </div>
+
+                  <div class="field">
+                    <%= form.label :note %>
+                    <%= form.text_area :note %>
+                  </div>
               </div>
 
               <div class="actions">

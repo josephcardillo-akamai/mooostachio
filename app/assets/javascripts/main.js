@@ -17,17 +17,23 @@ $(document).on('change','#mentry_split_true', function(){
     $( "#mentry_split_false" ).prop( "checked", false );
     if (split_button_yes == "true") {
       $('#transfer-btn').replaceWith("<input type='submit' name='commit' value='Split' id='transfer-btn' class='btn btn-outline-success my-2 my-sm-0' data-disable-with='Splitting...'>");
-      $('#split-entry').hide();
-    }
+      $('#split-amount').html(select_amount);
+      $('#mentry_amount').val('');
+      $('#mentry_amount').replaceWith("<input class='second-amount' type='text' name='mentry[amount]' id='second_amount'>");
+      }
 });
 
 $(document).on('change','#mentry_split_false', function(){
     split_button_no = "true";
     split_button_yes = "false";
     $( "#mentry_split_true" ).prop( "checked", false );
-    if (split_button_no == "true")
+    if (split_button_no == "true") {
       $('#transfer-btn').replaceWith("<input type='submit' name='commit' value='Create Entry' id='transfer-btn' class='btn btn-outline-success my-2 my-sm-0' data-disable-with='Creating Entry...'>");
-      $('#split-entry').show();
+
+      $('#second_amount').replaceWith("<input class='first-amount' type='text' name='mentry[amount]' id='mentry_amount'>");
+      $('#mentry_amount').val(select_amount);
+      $('#split-amount').html('');
+    }
 });
 
 
@@ -49,8 +55,8 @@ $(document).on('change','#mentry_mtype_id', function(){
 });
 
 var select_amount;
-$(document).on('input','.first_amount', function(){
-  select_amount = $('.first_amount').val();
+$(document).on('input','#mentry_amount', function(){
+  select_amount = $('#mentry_amount').val();
 });
 
 var select_status;
@@ -71,4 +77,11 @@ $(document).on('change','#mentry_mcategory_id', function(){
 var select_location;
 $(document).on('change','#mentry_mlocation_id', function(){
   select_location = $('#mentry_mlocation_id').val();
+});
+
+var split_amount;
+$(document).on('change','#mentry_amount', function(){
+    if (split_button_yes == "true") {
+      split_amount = $('#second_amount').val();
+    }
 });
