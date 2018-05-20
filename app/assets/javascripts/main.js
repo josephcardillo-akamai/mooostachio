@@ -85,3 +85,9 @@ $(document).on('change','#mentry_amount', function(){
       split_amount = $('#second_amount').val();
     }
 });
+
+var second_amount;
+$(document).on('change','#second_amount', function(){
+      second_amount = $('#second_amount').val();
+      $('#split-amount').html(select_amount - second_amount);
+});
