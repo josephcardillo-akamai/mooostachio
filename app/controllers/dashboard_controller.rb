@@ -69,21 +69,19 @@ class DashboardController < ApplicationController
     @mcategories = Mcategory.all
 
     if @mentry
-      if @mentry.mtype.name == 'debit'
-        @mentry.amount = @mentry.amount * -1
-      elsif
-        @mentry.mtype.name == 'transfer from'
-        @mentry.amount = @mentry.amount * -1
-      elsif
-        @mentry.mtype.name == 'withdrawal'
-        @mentry.amount = @mentry.amount * -1
-      elsif
-        @mentry.mtype.name == 'payment'
-        @mentry.amount = @mentry.amount * -1
-      elsif
-        @mentry.mtype.name == 'check'
-        @mentry.amount = @mentry.amount * -1
-      end
+        if @mentry.mtype_id == nil || @mentry.mtype_id == nil || @mentry.maccount_id == nil || @mentry.mcategory_id == nil || @mentry.mlocation_id == nil
+          p 'ASDFASDFASDFASDFASDFASDFASDF'
+        elsif @mentry.mtype.name == 'debit'
+          @mentry.amount = @mentry.amount * -1
+        elsif @mentry.mtype.name == 'transfer from'
+          @mentry.amount = @mentry.amount * -1
+        elsif @mentry.mtype.name == 'withdrawal'
+          @mentry.amount = @mentry.amount * -1
+        elsif @mentry.mtype.name == 'payment'
+          @mentry.amount = @mentry.amount * -1
+        elsif @mentry.mtype.name == 'check'
+          @mentry.amount = @mentry.amount * -1
+        end
     end
 
     if @mentry.save

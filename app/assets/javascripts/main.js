@@ -1,3 +1,7 @@
+/*------------------------------------------------------*/
+// Splitting
+/*------------------------------------------------------*/
+
 var split_button_yes;
 var split_button_no;
 $(document).ready(function() {
@@ -11,14 +15,25 @@ $(document).on('change','#mentry_split_true', function(){
     split_button_yes = "true";
     split_button_no = "false";
     $( "#mentry_split_false" ).prop( "checked", false );
+    if (split_button_yes == "true") {
+      $('#transfer-btn').replaceWith("<input type='submit' name='commit' value='Split' id='transfer-btn' class='btn btn-outline-success my-2 my-sm-0' data-disable-with='Splitting...'>");
+      $('#split-entry').hide();
+    }
 });
 
 $(document).on('change','#mentry_split_false', function(){
     split_button_no = "true";
     split_button_yes = "false";
     $( "#mentry_split_true" ).prop( "checked", false );
+    if (split_button_no == "true")
+      $('#transfer-btn').replaceWith("<input type='submit' name='commit' value='Create Entry' id='transfer-btn' class='btn btn-outline-success my-2 my-sm-0' data-disable-with='Creating Entry...'>");
+      $('#split-entry').show();
 });
 
+
+/*------------------------------------------------------*/
+// Transfers
+/*------------------------------------------------------*/
 
 var select_transfer;
 $(document).on('change','#mentry_mtype_id', function(){
@@ -32,19 +47,6 @@ $(document).on('change','#mentry_mtype_id', function(){
     $('#transfer-btn').replaceWith("<input type='submit' name='commit' value='Create Entry' id='transfer-btn' class='btn btn-outline-success my-2 my-sm-0' data-disable-with='Creating Entry...'>");
   }
 });
-
-// var split_button_yes = $('#split-yes').val();
-// var split_button_no = $('#split-no').val();
-//
-// $(document).on('change','#split-no', function(){
-//     split_button_no = "on";
-//     split_button_yes = "off";
-// });
-//
-// $(document).on('change','#split-yes', function(){
-//     split_button_yes = "on";
-//     split_button_no = "off";
-// });
 
 var select_amount;
 $(document).on('input','.first_amount', function(){
@@ -70,12 +72,3 @@ var select_location;
 $(document).on('change','#mentry_mlocation_id', function(){
   select_location = $('#mentry_mlocation_id').val();
 });
-
-// var split_amount;
-
-// var new_amount;
-// $(document).on('input','.new-amount', function(){
-//   split_amount = $('.new-amount').val();
-//   new_amount = (select_amount - split_amount);
-//   $('#split-amount')[0].innerText = "Amount: " + (new_amount * -1);
-// });

@@ -13,7 +13,7 @@ var select_location = $('#mentry_mlocation_id').val();
 // New Entry Logic
 // If transferring from one account/category to another / and not splitting:
 if (select_transfer == 2 && split_button_no == "true") {
-  // alert("Number 1");
+  alert("Number 1");
   $('#transfer-slide-out').replaceWith("<%= j render 'mentries/transfer' %>");
   $('#mentry_amount').val(select_amount);
   $('#mentry_mtype_id').val(3);
@@ -38,24 +38,15 @@ else if (select_transfer == 3  && split_button_no == "true") {
 else if (select_transfer != 3  && split_button_no == "true") {
   alert("number 3");
   $('#mentry_amount').val(0);
-  // $('#transfer-btn').replaceWith('');
-  // $('#transfer-slide-out').replaceWith("<%= j render 'mentries/form' %>");
   $('#maccount-balances').replaceWith("<%= j render 'dashboard/maccount_balances' %>");
   $('#spending-breakdown').replaceWith("<%= j render 'dashboard/spending' %>");
   $('#pie-chart').replaceWith("<%= j render 'dashboard/piechart' %>");
-  // $(document).ready(function() {
-  //     $('#split-amount')[0].innerText = "Amount: " + (select_amount * -1);
-  // });
 }
+
 else if (select_transfer != 3  && split_button_yes == "true") {
   alert("Number 4");
-  // $('#transfer-slide-out').replaceWith("<%= j render 'mentries/postSplitForm' %>");
   $('#transfer-slide-out').replaceWith("<%= j render 'mentries/form' %>");
   $('#maccount-balances').replaceWith("<%= j render 'dashboard/maccount_balances' %>");
   $('#spending-breakdown').replaceWith("<%= j render 'dashboard/spending' %>");
-  // $('.faded').animate
   $('#pie-chart').replaceWith("<%= j render 'dashboard/piechart' %>");
-  // $('#amount-reset')[0].innerText = "Amount: ";
 }
-
-// $('#pie-chart').replaceWith("<%= j render 'dashboard/piechart' %>");
