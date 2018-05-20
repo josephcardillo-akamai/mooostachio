@@ -1,7 +1,7 @@
 <div id="transfer-slide-out" class="form-container1 form-font">
   <div class="form-container2">
     <div>
-      <h1 id="amount-reset"></h1>
+      <h1>Amount: <span id="split-amount"></span></h1>
     </div>
       <h2>New Entry</h2>
         <% if user_signed_in? %>
@@ -17,53 +17,55 @@
                   </ul>
                 </div>
               <% end %>
+              <div id="split-entry">
+                  <div class="field">
+                    <%= form.label :amount %>
+                    <%= form.text_field :amount, class: 'second-amount', id: 'second_amount' %>
+                  </div>
 
-              <div class="field">
-                <%= form.label :amount %>
-                <%= form.text_field :amount, class: 'first-amount' %>
-              </div>
+                  <div>
+                    <p>
+                      Split:
+                        <%= form.label :yes, "Yes" %>
+                        <%= form.radio_button :split, true, checked: true %>
+                    </p>
+                  </div>
 
-              <div class="">
-                <p>
-                  Split:
-                    <input type="radio" name="split" id="split-yes"><span> Yes</span>
-                    <input type="radio" name="split" id="split-no"><span> No</span>
-                </p>
-              </div>
 
-              <div class="field">
-                <%= form.label :date %>
-                <%= form.date_select :date %>
-              </div>
+                  <div class="field">
+                    <%= form.label :date %>
+                    <%= form.date_select :date %>
+                  </div>
 
-              <div class="field">
-                <%= form.label :mstatus, "Status" %>
-                <%= form.select :mstatus_id, mstatuses_dropdown %>
-              </div>
+                  <div class="field">
+                    <%= form.label :mstatus, "Status" %>
+                    <%= form.select :mstatus_id, mstatuses_dropdown, include_blank: :true %>
+                  </div>
 
-              <div class="field">
-                <%= form.label :mtype, "Type" %>
-                <%= form.select :mtype_id, mtypes_dropdown, {}, id: 'transfer' %>
-              </div>
+                  <div class="field">
+                    <%= form.label :mtype, "Type" %>
+                    <%= form.select :mtype_id, mtypes_dropdown, include_blank: :true, id: 'transfer' %>
+                  </div>
 
-              <div class="field">
-                <%= form.label :maccount, "Account" %>
-                <%= form.select :maccount_id, maccounts_dropdown %>
-              </div>
+                  <div class="field">
+                    <%= form.label :maccount, "Account" %>
+                    <%= form.select :maccount_id, maccounts_dropdown, include_blank: :true %>
+                  </div>
 
-              <div class="field">
-                <%= form.label :mcategory, "Category" %>
-                <%= form.select :mcategory_id, mcategories_dropdown %>
-              </div>
+                  <div class="field">
+                    <%= form.label :mcategory, "Category" %>
+                    <%= form.select :mcategory_id, mcategories_dropdown, include_blank: :true %>
+                  </div>
 
-              <div class="field">
-                <%= form.label :mlocation, "Location" %>
-                <%= form.select :mlocation_id, mlocations_dropdown %>
-              </div>
+                  <div class="field">
+                    <%= form.label :mlocation, "Location" %>
+                    <%= form.select :mlocation_id, mlocations_dropdown, include_blank: :true %>
+                  </div>
 
-              <div class="field">
-                <%= form.label :note %>
-                <%= form.text_area :note %>
+                  <div class="field">
+                    <%= form.label :note %>
+                    <%= form.text_area :note %>
+                  </div>
               </div>
 
               <div class="actions">
@@ -71,5 +73,5 @@
               </div>
             <% end %>
         <% end %>
-    </div>
   </div>
+</div>
