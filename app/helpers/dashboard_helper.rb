@@ -59,7 +59,7 @@ module DashboardHelper
                   if entry.mcategory.name != 'paycheck'
                     if entry.mtype.name != 'deposit'
                       total += entry.amount
-                    end 
+                    end
                   end
                 end
               end

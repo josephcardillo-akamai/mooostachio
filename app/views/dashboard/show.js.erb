@@ -18,6 +18,30 @@ $('.close-error-modal').click(function() {
   $('#mentry_maccount_id').val(select_account);
   $('#mentry_mcategory_id').val(select_category);
   $('#mentry_mlocation_id').val(select_location);
-  $('#maccount-balances').replaceWith("<%= j render 'dashboard/maccount_balances' %>");
-  $('#spending-breakdown').replaceWith("<%= j render 'dashboard/spending' %>");
-  $('#pie-chart').replaceWith("<%= j render 'dashboard/piechart' %>");
+
+  /*-------------------------------------------------------------------------*/
+
+
+  $( '#maccount-balances' ).animate({
+    opacity: 0
+  }, 1000)
+
+  $( '#spending-breakdown' ).animate({
+    opacity: 0
+  }, 1000)
+
+  $( '#pie-chart' ).animate({
+    opacity: 0
+  }, 1000, function(){
+      $( '#pie-chart' ).replaceWith("<%= j render 'dashboard/piechart' %>");
+      $( '#maccount-balances' ).replaceWith("<%= j render 'maccount_balances' %>");
+      $( '#spending-breakdown' ).replaceWith("<%= j render 'dashboard/spending' %>");
+
+      $( '#pie-chart' ).hide();
+      $( '#maccount-balances' ).hide();
+      $( '#spending-breakdown' ).hide();
+
+      $( '#pie-chart' ).fadeIn(3000);
+      $( '#maccount-balances' ).fadeIn(3000);
+      $( '#spending-breakdown' ).fadeIn(3000);
+  });
