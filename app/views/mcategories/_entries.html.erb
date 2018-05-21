@@ -17,19 +17,21 @@
 
   <tbody class="table-row">
     <% mcategory_entries.each do |mentry| %>
-      <tr>
-        <td scope="row"><%= mentry.id %></td>
-        <td scope="row"><%= number_to_currency(mentry.amount) %></td>
-        <td scope="row"><%= mentry.date %></td>
-        <td scope="row"><%= mentry.note %></td>
-        <td scope="row"><%= mentry.mcategory.name %></td>
-        <td scope="row"><%= mentry.mlocation.name %></td>
-        <td scope="row"><%= mentry.mtype.name %></td>
-        <td scope="row"><%= mentry.mstatus.name %></td>
-        <td scope="row"><%= link_to 'Show', mentry %></td>
-        <td scope="row"><%= link_to 'Edit', edit_mentry_path(mentry) %></td>
-        <td scope="row"><%= link_to 'Destroy', mentry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <% if current_user.id == mentry.user_id %>
+        <tr>
+          <td scope="row"><%= mentry.id %></td>
+          <td scope="row"><%= number_to_currency(mentry.amount) %></td>
+          <td scope="row"><%= mentry.date %></td>
+          <td scope="row"><%= mentry.note %></td>
+          <td scope="row"><%= mentry.mcategory.name %></td>
+          <td scope="row"><%= mentry.mlocation.name %></td>
+          <td scope="row"><%= mentry.mtype.name %></td>
+          <td scope="row"><%= mentry.mstatus.name %></td>
+          <td scope="row"><%= link_to 'Show', mentry %></td>
+          <td scope="row"><%= link_to 'Edit', edit_mentry_path(mentry) %></td>
+          <td scope="row"><%= link_to 'Destroy', mentry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
     <% end %>
   </tbody>
 </table>

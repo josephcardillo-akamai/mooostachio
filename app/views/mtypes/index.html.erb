@@ -12,12 +12,11 @@
 
   <tbody>
     <% @mtypes.each do |mtype| %>
-      <tr>
-        <td><%= mtype.name %></td>
-        <td><%= link_to 'Show', mtype %></td>
-        <td><%= link_to 'Edit', edit_mtype_path(mtype) %></td>
-        <td><%= link_to 'Destroy', mtype, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <% if current_user.id == mtype.user_id %>
+        <tr>
+          <td><%= link_to mtype.name, mtype_path(mtype.id) %></td>
+        </tr>
+      <% end %>
     <% end %>
   </tbody>
 </table>

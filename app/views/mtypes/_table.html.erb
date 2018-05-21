@@ -1,4 +1,3 @@
-
   <table class="table">
     <thead>
       <tr>
@@ -14,7 +13,7 @@
     </thead>
     <tbody class="table-row">
       <% @mentries.each do |mentry| %>
-      <% if @maccount.name == mentry.maccount.name %>
+      <% if @mtype.name == mentry.mtype.name %>
         <% if current_user.id == mentry.user_id %>
           <tr>
             <th scope="row"><%= link_to mentry.id, mentry_path(mentry.id) %></th>

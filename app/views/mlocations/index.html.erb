@@ -12,12 +12,14 @@
 
   <tbody>
     <% @mlocations.each do |mlocation| %>
-      <tr>
-        <td><%= mlocation.name %></td>
-        <td><%= link_to 'Show', mlocation %></td>
-        <td><%= link_to 'Edit', edit_mlocation_path(mlocation) %></td>
-        <td><%= link_to 'Destroy', mlocation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    <% if current_user.id == mlocation.user_id %>
+        <tr>
+          <td><%= mlocation.name %></td>
+          <td><%= link_to 'Show', mlocation %></td>
+          <td><%= link_to 'Edit', edit_mlocation_path(mlocation) %></td>
+          <td><%= link_to 'Destroy', mlocation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
     <% end %>
   </tbody>
 </table>

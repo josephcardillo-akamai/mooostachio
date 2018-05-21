@@ -12,6 +12,7 @@ class MaccountsController < ApplicationController
   def show
     @mentries = Mentry.all
     @maccounts = Maccount.all
+
   end
 
   # GET /maccounts/new

@@ -2,7 +2,9 @@
 
 <h1>
   <strong>Name:</strong>
-  <%= @mcategory.name %>
+  <% if current_user.id == @mcategory.user_id %>
+    <%= @mcategory.name %>
+  <% end %>
 </h1>
 
 <%= render 'mcategories/entries' %>

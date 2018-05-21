@@ -12,12 +12,14 @@
 
   <tbody>
     <% @maccounts.each do |maccount| %>
-      <tr>
-        <td><%= maccount.name %></td>
-        <td><%= link_to 'Show', maccount %></td>
-        <td><%= link_to 'Edit', edit_maccount_path(maccount) %></td>
-        <td><%= link_to 'Destroy', maccount, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <% if current_user.id == maccount.user_id %>
+        <tr>
+            <td><%= maccount.name %></td>
+            <td><%= link_to 'Show', maccount %></td>
+            <td><%= link_to 'Edit', edit_maccount_path(maccount) %></td>
+            <td><%= link_to 'Destroy', maccount, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
     <% end %>
   </tbody>
 </table>

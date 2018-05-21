@@ -2,7 +2,9 @@
 
 <p>
   <strong>Name:</strong>
-  <%= @mlocation.name %>
+  <% if current_user.id == @mlocation.user_id %>
+    <%= @mlocation.name %>
+  <% end %>
 </p>
 
 <%= link_to 'Edit', edit_mlocation_path(@mlocation) %> |

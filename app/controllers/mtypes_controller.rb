@@ -10,6 +10,8 @@ class MtypesController < ApplicationController
   # GET /mtypes/1
   # GET /mtypes/1.json
   def show
+    @mentries = Mentry.all
+    @mtypes = Mtype.all
   end
 
   # GET /mtypes/new

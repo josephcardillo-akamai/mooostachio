@@ -10,6 +10,9 @@ class MlocationsController < ApplicationController
   # GET /mlocations/1
   # GET /mlocations/1.json
   def show
+    if current_user.id != @mlocation.user_id
+      redirect_to root_path
+    end
   end
 
   # GET /mlocations/new

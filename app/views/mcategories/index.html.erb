@@ -12,12 +12,16 @@
 
   <tbody>
     <% @mcategories.each do |mcategory| %>
-      <tr>
-        <td><%= mcategory.name %></td>
-        <td><%= link_to 'Show', mcategory %></td>
-        <td><%= link_to 'Edit', edit_mcategory_path(mcategory) %></td>
-        <td><%= link_to 'Destroy', mcategory, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    <% if current_user.id == mcategory.user_id %>
+        <tr>
+          <td><%= mcategory.name %></td>
+          <td><%= link_to 'Show', mcategory %></td>
+          <td><%= link_to 'Edit', edit_mcategory_path(mcategory) %></td>
+          <% if mcategory.name != 'paycheck' %>
+          <td><%= link_to 'Destroy', mcategory, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% end %>
+        </tr>
+      <% end %>
     <% end %>
   </tbody>
 </table>
