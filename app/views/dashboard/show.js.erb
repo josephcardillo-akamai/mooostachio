@@ -3,20 +3,17 @@ $('.close-error-modal').click(function() {
 });
 
 // alert('hi!')
-var select_transfer = $('#mentry_mtype_id').val();
-var select_amount = $('#mentry_amount').val();
-var select_status = $('#mentry_mstatus_id').val();
-var select_account = $('#mentry_maccount_id').val();
-var select_category = $('#mentry_mcategory_id').val();
-var select_location = $('#mentry_mlocation_id').val();
+// var select_transfer = $('#mentry_mtype_id').val();
+  var select_amount = $('#mentry_amount').val();
+  var select_status = $('#mentry_mstatus_id').val();
+  var select_account = $('#mentry_maccount_id').val();
+  var select_category = $('#mentry_mcategory_id').val();
+  var select_location = $('#mentry_mlocation_id').val();
 
 // New Entry Logic
-// If transferring from one account/category to another / and not splitting:
-if (select_transfer == 3) {
-  alert("Number 1");
-  $('#transfer-slide-out').replaceWith("<%= j render 'mentries/transfer' %>");
-  $('#mentry_amount').val(select_amount);
-  $('#mentry_mtype_id').val(4);
+  alert("Your entry was successful!");
+  $('#mentry_amount').val(0);
+  // $('#mentry_mtype_id').val(4);
   $('#mentry_mstatus_id').val(select_status);
   $('#mentry_maccount_id').val(select_account);
   $('#mentry_mcategory_id').val(select_category);
@@ -24,37 +21,3 @@ if (select_transfer == 3) {
   $('#maccount-balances').replaceWith("<%= j render 'dashboard/maccount_balances' %>");
   $('#spending-breakdown').replaceWith("<%= j render 'dashboard/spending' %>");
   $('#pie-chart').replaceWith("<%= j render 'dashboard/piechart' %>");
-}
-
-else if (select_transfer == 4) {
-  alert("number 2");
-  $('#transfer-slide-out').replaceWith("<%= j render 'mentries/form' %>");
-  $('#maccount-balances').replaceWith("<%= j render 'dashboard/maccount_balances' %>");
-  $('#spending-breakdown').replaceWith("<%= j render 'dashboard/spending' %>");
-  $('#pie-chart').replaceWith("<%= j render 'dashboard/piechart' %>");
-}
-
-// If not transferring / not splitting:
-else {
-  alert("number 3");
-  $('#mentry_amount').val(0);
-  $('#maccount-balances').replaceWith("<%= j render 'dashboard/maccount_balances' %>");
-  $('#spending-breakdown').replaceWith("<%= j render 'dashboard/spending' %>");
-  $('#pie-chart').replaceWith("<%= j render 'dashboard/piechart' %>");
-}
-
-// else if (select_transfer != 3  && split_button_yes == "true") {
-//   alert("Number 4");
-//   $('#transfer-slide-out').replaceWith("<%= j render 'mentries/postSplitForm' %>");
-//   $('#mentry_amount').val('');
-//   $('#mentry_mtype_id').val(3);
-//   $('#mentry_mstatus_id').val(select_status);
-//   $('#split-amount').html(split_amount);
-//   $('#mentry_maccount_id').val(select_account);
-//   $('#mentry_mcategory_id').val(select_category);
-//   $('#mentry_mlocation_id').val(select_location);
-//   $('#mentry_entry_id').val(select_entry_id);
-//   $('#maccount-balances').replaceWith("<%= j render 'dashboard/maccount_balances' %>");
-//   $('#spending-breakdown').replaceWith("<%= j render 'dashboard/spending' %>");
-//   $('#pie-chart').replaceWith("<%= j render 'dashboard/piechart' %>");
-// }

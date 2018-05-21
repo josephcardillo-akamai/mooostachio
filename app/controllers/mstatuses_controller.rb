@@ -10,9 +10,7 @@ class MstatusesController < ApplicationController
   # GET /mstatuses/1
   # GET /mstatuses/1.json
   def show
-    if current_user.id != @mstatuses.user_id
-      redirect_to root_path
-    end
+
   end
 
   # GET /mstatuses/new

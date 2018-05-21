@@ -17,9 +17,7 @@ class MentriesController < ApplicationController
   # GET /mentries/1
   # GET /mentries/1.json
   def show
-    if current_user.id != @mentries.user_id
-      redirect_to root_path
-    end
+
   end
 
   # GET /mentries/new

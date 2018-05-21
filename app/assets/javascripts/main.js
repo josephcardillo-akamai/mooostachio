@@ -41,18 +41,18 @@ $(document).on('change','#mentry_split_false', function(){
 // Transfers
 /*------------------------------------------------------*/
 
-var select_transfer;
-$(document).on('change','#mentry_mtype_id', function(){
-  select_transfer = $('#mentry_mtype_id').val();
-  if (select_transfer == 3) {
-    // alert("You selected transfer!");
-    $('#transfer-btn').replaceWith("<input type='submit' name='commit' value='Transfer' id='transfer-btn' class='btn btn-outline-success my-2 my-sm-0' data-disable-with='Transferring To...'>");
-  }
-  else {
-    // alert("What's going on here?");
-    $('#transfer-btn').replaceWith("<input type='submit' name='commit' value='Create Entry' id='transfer-btn' class='btn btn-outline-success my-2 my-sm-0' data-disable-with='Creating Entry...'>");
-  }
-});
+// var select_transfer;
+// $(document).on('change','#mentry_mtype_id', function(){
+//   select_transfer = $('#mentry_mtype_id').val();
+//   if (select_transfer == 3) {
+//     // alert("You selected transfer!");
+//     $('#transfer-btn').replaceWith("<input type='submit' name='commit' value='Transfer' id='transfer-btn' class='btn btn-outline-success my-2 my-sm-0' data-disable-with='Transferring To...'>");
+//   }
+//   else {
+//     // alert("What's going on here?");
+//     $('#transfer-btn').replaceWith("<input type='submit' name='commit' value='Create Entry' id='transfer-btn' class='btn btn-outline-success my-2 my-sm-0' data-disable-with='Creating Entry...'>");
+//   }
+// });
 
 var select_amount;
 $(document).on('input','#mentry_amount', function(){
