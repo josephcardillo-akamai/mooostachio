@@ -38,6 +38,20 @@ src: url('/assets/IkraSlab');
   min-width: 350px;
 }
 
+.table-container1 {
+  border-style: solid;
+  border-width: thin;
+  border-radius: 8px;
+  box-shadow: 0px 0px 16px 0px #888;
+  width: 1050px;
+  min-width: 1005px;
+}
+
+.table-container2 {
+  margin: 25px;
+  width: 1005px;
+}
+
 h1 {
   text-align: left;
   font-weight: bold;
@@ -101,4 +115,9 @@ h2 {
 
 .pie-div {
   height: 379px;
+}
+
+.balance-bg-color {
+  background-color: #28A745;
+  padding: 8px;
 }

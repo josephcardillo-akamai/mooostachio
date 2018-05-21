@@ -1,27 +1,31 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Statuses</h1>
+<div class="form-container1">
+  <div class="form-container2">
+    <h1>Statuses</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
 
-  <tbody>
-    <% @mstatuses.each do |mstatus| %>
-      <tr>
-        <td><%= mstatus.name %></td>
-        <td><%= link_to 'Show', mstatus %></td>
-        <td><%= link_to 'Edit', edit_mstatus_path(mstatus) %></td>
-        <td><%= link_to 'Destroy', mstatus, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <tbody>
+        <% @mstatuses.each do |mstatus| %>
+          <tr>
+            <td><%= mstatus.name %></td>
+            <td><%= link_to 'Show', mstatus %></td>
+            <td><%= link_to 'Edit', edit_mstatus_path(mstatus) %></td>
+            <td><%= link_to 'Destroy', mstatus, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
 
-<br>
+    <br>
 
-<%= link_to 'New Status', new_mstatus_path %>
+    <%= link_to 'New Status', new_mstatus_path %>
+  </div>
+</div>

@@ -3,7 +3,7 @@
     <div>
       <!-- <h1>Amount: <span id="split-amount"></span></h1> -->
     </div>
-      <h2>New Entry</h2>
+      <h2 class="balance-bg-color">New Entry</h2>
         <% if user_signed_in? %>
             <%= form_with model: Mentry.new, url: root_path do |form| %>
               <% if @mentry.errors.any? %>

@@ -1,23 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<div class="form-container1">
-    <div class="form-container2">
-        <%= form_tag(mentries_path, :method => "get", id: "search-form", class: "form-inline my-2 my-lg-0") do %>
-         <%= text_field_tag :search, params[:search], placeholder: "Search Categories", class: 'form-control' %>
-            <span class="input-group-btn">
-              <%= submit_tag "Search", class: 'btn btn-outline-success my-2 my-sm-0' %>
-            </span>
-        <% end %>
-        <div class="white-space"></div>
-        <%= link_to 'Clear Search', mentries_path %>
-    </div>
-</div>
-
 <div class="white-space">
 
 </div>
 
-<h1>Entries</h1>
-<%= render 'dashboard/entries' %>
-<br>
-<%= link_to 'New Entry', new_mentry_path %>
+<div class="table-container1">
+  <div class="table-container2">
+    <h1>Entries</h1>
+    <%= render 'dashboard/entries' %>
+    <br>
+    <%= link_to 'New Entry', new_mentry_path %>
+  </div>
+</div>

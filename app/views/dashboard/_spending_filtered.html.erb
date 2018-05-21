@@ -16,10 +16,16 @@
                 </th>
                   <% total = 0 %>
                   <% mcategory.mentries.each do |entry| %>
-                    <% if entry.mtype.name != 'transfer' %>
-                      <% if entry.mcategory.name != 'paycheck' %>
-                        <% if entry.date.to_s > @from_date && entry.date.to_s < @to_date %>
-                          <% total += entry.amount %>
+                    <% if entry.mtype.name != 'transfer from' %>
+                      <% if entry.mtype.name != 'transfer to' %>
+                        <% if entry.mtype.name != 'deposit' %>
+                          <% if entry.mcategory.name != 'paycheck' %>
+                            <% if entry.date.to_s > @from_date %>
+                              <% if entry.date.to_s < @to_date %>
+                                <% total += entry.amount %>
+                              <% end %>
+                            <% end %>
+                          <% end %>
                         <% end %>
                       <% end %>
                     <% end %>
@@ -27,8 +33,8 @@
                 <th scope="row">
                     <%= number_to_currency(total * -1) %>
                 </th>
-            <% end %>
             </tr>
+          <% end %>
       </tbody>
     </table>
   </div>

@@ -1,12 +1,12 @@
 module MaccountsHelper
 
     def maccounts_dropdown
-    arr = []
-    Maccount.all.each do |maccount|
-        if maccount.user_id == current_user.id
-        arr << [maccount.name, maccount.id]
+      arr = []
+      Maccount.all.each do |maccount|
+          if maccount.user_id == current_user.id
+          arr << [maccount.name, maccount.id]
+          end
         end
-      end
-    return arr
-  end
+      return arr
+    end
 end

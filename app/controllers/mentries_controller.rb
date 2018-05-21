@@ -4,13 +4,7 @@ class MentriesController < ApplicationController
   # GET /mentries
   # GET /mentries.json
   def index
-    if params[:search] == nil
       @mentries = Mentry.all
-    else
-      to_search = params[:search]
-      category_id = Mcategory.where(name: to_search).first.id
-      @mentries = Mentry.where(mcategory_id: category_id)
-    end
   end
 
 

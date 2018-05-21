@@ -1,0 +1,43 @@
+<div class="form-container3">
+  <div class="form-container4">
+    <h2><%= @maccount.name %> Breakdown</h2>
+    <h2 class="balance-bg-color">
+      <% total = 0 %>
+      <% @maccount.mentries.each do |mentry| %>
+        <% total += mentry.amount %>
+      <% end %>
+      <%= number_to_currency(total) %>
+    </h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Category</th>
+          <th scope="col">Total</th>
+        </tr>
+      </thead>
+      <tbody class="table-row">
+          <% cat_not_zero.each do |mcategory| %>
+            <tr>
+
+                <th scope="row">
+
+                    <%= link_to mcategory.name, mcategory_path(mcategory.id) %>
+
+                </th>
+                  <% total = 0 %>
+                  <% mcategory.mentries.each do |entry| %>
+                    <% if current_user.id == entry.user_id %>
+                      <% if entry.maccount.name == @maccount.name  %>
+                          <% total += entry.amount %>
+                      <% end %>
+                    <% end %>
+                  <% end %>
+                <th scope="row">
+                    <%= number_to_currency(total) %>
+                </th>
+            <% end %>
+            </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
