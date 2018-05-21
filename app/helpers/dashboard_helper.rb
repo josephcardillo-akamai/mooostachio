@@ -15,16 +15,17 @@ module DashboardHelper
 
       categories_arr = []
       @categories.each do |category|
-        if current_user.id == category.user_id
             subarray = []
             subarray.push(category.name)
             total = 0
             category.mentries.each do |entry|
-              if entry.mtype.name != 'transfer from'
-                if entry.mtype.name != 'transfer to'
-                  if entry.mcategory.name != 'paycheck'
-                    if entry.mtype.name != 'deposit'
-                      total += entry.amount
+              if current_user.id == entry.user_id
+                if entry.mtype.name != 'transfer from'
+                  if entry.mtype.name != 'transfer to'
+                    if entry.mcategory.name != 'paycheck'
+                      if entry.mtype.name != 'deposit'
+                        total += entry.amount
+                      end
                     end
                   end
                 end
@@ -36,7 +37,7 @@ module DashboardHelper
             end
           end
           return categories_arr
-        end
+
   end
 
 
@@ -52,8 +53,16 @@ module DashboardHelper
     @mcategories.each do |mcategory|
           total = 0
           mcategory.mentries.each do |entry|
-            if entry.mtype.name != 'transfer' && entry.mcategory.name != 'paycheck'
-              total += entry.amount
+            if current_user.id == entry.user_id
+              if entry.mtype.name != 'transfer from'
+                if entry.mtype.name != 'transfer to'
+                  if entry.mcategory.name != 'paycheck'
+                    if entry.mtype.name != 'deposit'
+                      total += entry.amount
+                    end 
+                  end
+                end
+              end
             end
           end
           if total != 0

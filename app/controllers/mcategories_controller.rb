@@ -11,9 +11,6 @@ class McategoriesController < ApplicationController
   # GET /mcategories/1.json
   def show
 
-    if current_user.id != @mcategories.user_id
-      redirect_to root_path
-    end
   end
 
   # GET /mcategories/new
