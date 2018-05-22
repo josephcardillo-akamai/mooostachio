@@ -1,0 +1,37 @@
+<div id="transfer-slide-out" class="form-container1 form-font">
+  <div class="form-container2">
+
+      <%= form_for @mentry do |f| %>
+        <p>Edit Entry:</p>
+        <%= f.label :amount %>
+        <%= f.text_field :amount %>
+
+        <%= f.label :yes, "Yes" %>
+        <%= f.radio_button :split, true %>
+        <%= f.label :no, "No" %>
+        <%= f.radio_button :split, false, checked: true %>
+
+        <%= f.label :date %>
+        <%= f.date_select :date %>
+
+        <%= f.label :mstatus, "Status" %>
+        <%= f.select :mstatus_id, mstatuses_dropdown, include_blank: :true %>
+
+        <%= f.label :mtype, "Type" %>
+        <%= f.select :mtype_id, mtypes_dropdown, include_blank: :true, id: 'transfer' %>
+
+        <%= f.label :maccount, "Account" %>
+        <%= f.select :maccount_id, maccounts_dropdown, include_blank: :true %>
+
+        <%= f.label :mcategory, "Category" %>
+        <%= f.select :mcategory_id, mcategories_dropdown, include_blank: :true %>
+
+        <%= f.label :mlocation, "Location" %>
+        <%= f.select :mlocation_id, mlocations_dropdown, include_blank: :true %>
+
+        <%= f.label :note %>
+        <%= f.text_area :note %>
+
+        <%= f.submit "Update Entry", class: "btn btn-outline-success my-2 my-sm-0" %>
+        <% end %>
+    </div>

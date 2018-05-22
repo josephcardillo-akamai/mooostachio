@@ -53,7 +53,7 @@ class MentriesController < ApplicationController
   def update
     respond_to do |format|
       if @mentry.update(mentry_params)
-        format.html { redirect_to @mentry, notice: 'Mentry was successfully updated.' }
+        format.html { redirect_to @mentry, notice: 'Entry was successfully updated.' }
         format.json { render :show, status: :ok, location: @mentry }
       else
         format.html { render :edit }
