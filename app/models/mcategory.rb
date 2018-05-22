@@ -1,5 +1,5 @@
 class Mcategory < ApplicationRecord
-  has_many :mentries
+  has_many :mentries, dependent: :destroy
   belongs_to :user
   before_save :downcase_fields
   before_save validates :name, uniqueness: true if :user != :user

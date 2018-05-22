@@ -3,12 +3,14 @@
     <thead>
       <tr>
         <th scope="col">###</th>
+        <th scope="col" class="right-align">Amount</th>
+        <th scope="col">Split</th>
         <th scope="col">Date</th>
         <th scope="col">Status</th>
         <th scope="col">Type</th>
         <th scope="col">Category</th>
         <th scope="col">Location</th>
-        <th scope="col">Amount</th>
+
         <th scope="col">Note</th>
       </tr>
     </thead>
@@ -17,14 +19,15 @@
       <% if @maccount.name == mentry.maccount.name %>
         <% if current_user.id == mentry.user_id %>
           <tr>
-            <th scope="row"><%= link_to mentry.id, mentry_path(mentry.id) %></th>
-            <th scope="row"><%= mentry.date %></th>
-            <th scope="row"><%= mentry.mstatus.name %></th>
-            <th scope="row"><%= mentry.mtype.name %></th>
-            <th scope="row"><%= mentry.mcategory.name %></th>
-            <th scope="row"><%= mentry.mlocation.name %></th>
-            <th scope="row"><%= number_to_currency(mentry.amount) %></th>
-            <th scope="row"><%= mentry.note %></th>
+            <td scope="row"><%= link_to mentry.id, mentry_path(mentry.id) %></td>
+            <td scope="row" align="right"><%= number_to_currency(mentry.amount) %></td>
+            <td scope="row"><%= mentry.split %></td>
+            <td scope="row"><%= mentry.date %></td>
+            <td scope="row"><%= mentry.mstatus.name %></td>
+            <td scope="row"><%= mentry.mtype.name %></td>
+            <td scope="row"><%= mentry.mcategory.name %></td>
+            <td scope="row"><%= mentry.mlocation.name %></td>
+            <td scope="row"><%= mentry.note %></td>
           </tr>
         <% end %>
       <% end %>

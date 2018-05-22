@@ -13,10 +13,9 @@
         <% @maccounts.each do |maccount| %>
           <% if current_user.id == maccount.user_id %>
             <tr>
-                <td><%= maccount.name %></td>
-                <td><%= link_to 'Show', maccount %></td>
+                <td><%= link_to maccount.name, maccount_path(maccount.id) %></td>
                 <td><%= link_to 'Edit', edit_maccount_path(maccount) %></td>
-                <td><%= link_to 'Destroy', maccount, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                <td><%= link_to 'X', maccount, method: :delete, data: { confirm: 'Are you sure?' } %></td>
             </tr>
           <% end %>
         <% end %>

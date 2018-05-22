@@ -1,5 +1,5 @@
 class Mtype < ApplicationRecord
-  has_many :mentries
+  has_many :mentries, dependent: :destroy
   belongs_to :user
 
   before_save :downcase_fields

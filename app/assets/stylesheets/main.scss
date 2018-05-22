@@ -38,6 +38,7 @@ src: url('/assets/IkraSlab');
 
 .form-container1 {
   border-style: solid;
+  background-color: white;
   border-width: thin;
   border-radius: 8px;
   box-shadow: 0px 0px 16px 0px #888;
@@ -53,6 +54,7 @@ src: url('/assets/IkraSlab');
 
 .form-container3 {
   border-style: solid;
+  background-color: white;
   border-width: thin;
   border-radius: 8px;
   box-shadow: 0px 0px 16px 0px #888;
@@ -68,6 +70,7 @@ src: url('/assets/IkraSlab');
 
 .table-container1 {
   border-style: solid;
+  background-color: white;
   border-width: thin;
   border-radius: 8px;
   box-shadow: 0px 0px 16px 0px #888;
@@ -83,35 +86,22 @@ src: url('/assets/IkraSlab');
 h1 {
   text-align: left;
   font-weight: bold;
-  // padding: 5px 5px 5px 15px;
   font-size: 24px;
-  // margin: -7px -7px 0;
-  // background-color: #c00;
-  // color: #fff;
-  // font-family: 'IBM Plex Serif', serif;
   font-family: 'Ikra Slab';
-  // margin: 9px;
   letter-spacing: 5px;
 }
 
 h2 {
     text-align: left;
     font-weight: bold;
-    // padding: 5px 5px 5px 15px;
     font-size: 18px;
-    // margin: -7px -7px 0;
-    // background-color: #c00;
-    // color: #fff;
-    // font-family: 'IBM Plex Serif', serif;
     font-family: 'Ikra Slab';
-    // margin: 9px;
     letter-spacing: 5px;
   }
 
 .brand-font {
   font-family: 'Ikra Slab';
   font-size: 22px;
-  // margin: 9px;
   letter-spacing: 5px;
   padding-top: 9px;
   margin: 9px;
@@ -146,6 +136,17 @@ h2 {
 }
 
 .balance-bg-color {
-  background-color: #28A745;
+  background-color: #41DCF0;
   padding: 8px;
+}
+
+.right-align {
+  text-align: right;
+}
+
+.moose-image {
+  width: 300px;
+  position: fixed;
+  bottom: -75px;
+  right: -125px;
 }

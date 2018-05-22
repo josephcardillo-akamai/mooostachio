@@ -5,12 +5,12 @@ class User < ApplicationRecord
   after_create :create_categories
   after_create :create_locations
 
-  has_many :mentries
-  has_many :maccounts
-  has_many :mcategories
-  has_many :mlocations
-  has_many :mtypes
-  has_many :mstatuses
+  has_many :mentries, dependent: :destroy
+  has_many :maccounts, dependent: :destroy
+  has_many :mcategories, dependent: :destroy
+  has_many :mlocations, dependent: :destroy
+  has_many :mtypes, dependent: :destroy
+  has_many :mstatuses, dependent: :destroy
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,

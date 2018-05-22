@@ -12,6 +12,7 @@ class MentriesController < ApplicationController
   # GET /mentries/1.json
   def show
     @mentries = Mentry.order("date DESC")
+    
   end
 
   # GET /mentries/new

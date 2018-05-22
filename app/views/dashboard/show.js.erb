@@ -24,15 +24,15 @@ $('.close-error-modal').click(function() {
 
   $( '#maccount-balances' ).animate({
     opacity: 0
-  }, 1000)
+  }, 500)
 
   $( '#spending-breakdown' ).animate({
     opacity: 0
-  }, 1000)
+  }, 500)
 
   $( '#pie-chart' ).animate({
     opacity: 0
-  }, 1000, function(){
+  }, 500, function(){
       $( '#pie-chart' ).replaceWith("<%= j render 'dashboard/piechart' %>");
       $( '#maccount-balances' ).replaceWith("<%= j render 'maccount_balances' %>");
       $( '#spending-breakdown' ).replaceWith("<%= j render 'dashboard/spending' %>");
@@ -41,7 +41,17 @@ $('.close-error-modal').click(function() {
       $( '#maccount-balances' ).hide();
       $( '#spending-breakdown' ).hide();
 
-      $( '#pie-chart' ).fadeIn(3000);
-      $( '#maccount-balances' ).fadeIn(3000);
-      $( '#spending-breakdown' ).fadeIn(3000);
+      $( '#pie-chart' ).fadeIn(500);
+      $( '#maccount-balances' ).fadeIn(500);
+      $( '#spending-breakdown' ).fadeIn(500);
   });
+
+  $( '#moose-image' ).animate({
+    width: "350px",
+    right: "-75px"
+  }, 500)
+
+  $( '#moose-image' ).animate({
+    width: "300px",
+    right: "-125px"
+  }, 500).delay(1000)
