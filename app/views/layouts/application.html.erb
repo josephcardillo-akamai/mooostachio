@@ -19,8 +19,7 @@
     <%= render 'layouts/nav'%>
 
     <div class="wrapper1">
-        <p class="notice"><%= notice %></p>
-        <p class="alert"><%= alert %></p>
+        <%= render 'dashboard/flash' %>
         <%= yield %>
     </div>
     <%= render 'layouts/footer' %>

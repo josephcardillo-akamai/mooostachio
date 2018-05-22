@@ -10,9 +10,8 @@
       <th scope="col">Type</th>
       <th scope="col">Status</th>
       <th scope="col">Note</th>
-      <th scope="col">Show</th>
-      <th scope="col">Edit</th>
-      <th scope="col">Destroy</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
     </tr>
   </thead>
 
@@ -20,7 +19,7 @@
     <% @mentries.reverse.each do |mentry| %>
     <% if current_user.id == mentry.user_id %>
         <tr>
-          <td scope="row"><%= mentry.id %></td>
+          <td scope="row"><%= link_to mentry.id, mentry_path(mentry.id) %></td>
           <td scope="row"><%= number_to_currency(mentry.amount) %></td>
           <td scope="row"><%= mentry.maccount.name %></td>
           <td scope="row"><%= mentry.date %></td>
@@ -29,9 +28,8 @@
           <td scope="row"><%= mentry.mtype.name %></td>
           <td scope="row"><%= mentry.mstatus.name %></td>
           <td scope="row"><%= mentry.note %></td>
-          <td scope="row"><%= link_to 'Show', mentry %></td>
           <td scope="row"><%= link_to 'Edit', edit_mentry_path(mentry) %></td>
-          <td scope="row"><%= link_to 'Destroy', mentry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td scope="row"><%= link_to 'X', mentry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
       <% end %>
     <% end %>

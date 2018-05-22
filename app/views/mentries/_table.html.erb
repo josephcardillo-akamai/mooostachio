@@ -13,7 +13,7 @@
       </tr>
     </thead>
     <tbody class="table-row">
-      <% @mentries.each do |mentry| %>
+      <% @mentries.reverse.each do |mentry| %>
       <% if @maccount.name == mentry.maccount.name %>
         <% if current_user.id == mentry.user_id %>
           <tr>
