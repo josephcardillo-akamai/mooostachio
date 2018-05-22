@@ -1,37 +1,79 @@
 <div id="transfer-slide-out" class="form-container1 form-font">
   <div class="form-container2">
-
-      <%= form_for @mentry do |f| %>
-        <p>Edit Entry:</p>
-        <%= f.label :amount %>
-        <%= f.text_field :amount %>
-
-        <%= f.label :yes, "Yes" %>
-        <%= f.radio_button :split, true %>
-        <%= f.label :no, "No" %>
-        <%= f.radio_button :split, false, checked: true %>
-
-        <%= f.label :date %>
-        <%= f.date_select :date %>
-
-        <%= f.label :mstatus, "Status" %>
-        <%= f.select :mstatus_id, mstatuses_dropdown, include_blank: :true %>
-
-        <%= f.label :mtype, "Type" %>
-        <%= f.select :mtype_id, mtypes_dropdown, include_blank: :true, id: 'transfer' %>
-
-        <%= f.label :maccount, "Account" %>
-        <%= f.select :maccount_id, maccounts_dropdown, include_blank: :true %>
-
-        <%= f.label :mcategory, "Category" %>
-        <%= f.select :mcategory_id, mcategories_dropdown, include_blank: :true %>
-
-        <%= f.label :mlocation, "Location" %>
-        <%= f.select :mlocation_id, mlocations_dropdown, include_blank: :true %>
-
-        <%= f.label :note %>
-        <%= f.text_area :note %>
-
-        <%= f.submit "Update Entry", class: "btn btn-outline-success my-2 my-sm-0" %>
-        <% end %>
+    <div>
+      <!-- <h1>Amount: <span id="split-amount"></span></h1> -->
     </div>
+      <h2 class="balance-bg-color">New Entry</h2>
+        <% if user_signed_in? %>
+            <%= form_with(model: mentry, local: true) do |form| %>
+              <% if @mentry.errors.any? %>
+                <div id="error_explanation">
+                  <h2><%= pluralize(@mentry.errors.count, "error") %> prohibited this mentry from being saved:</h2>
+
+                  <ul>
+                  <% @mentry.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                  <% end %>
+                  </ul>
+                </div>
+              <% end %>
+              <div id="split-entry">
+                  <div class="field">
+                    <%= form.label :amount %>
+                    <%= form.text_field :amount, class: 'first-amount' %>
+                  </div>
+
+                  <div>
+                    <p>
+                      Split:
+                        <%= form.label :yes, "Yes" %>
+                        <%= form.radio_button :split, true %>
+                        <%= form.label :no, "No" %>
+                        <%= form.radio_button :split, false, checked: true %>
+                    </p>
+                  </div>
+
+
+                  <div class="field">
+                    <%= form.label :date %>
+                    <%= form.date_select :date %>
+                  </div>
+
+                  <div class="field">
+                    <%= form.label :mstatus, "Status" %>
+                    <%= form.select :mstatus_id, mstatuses_dropdown, include_blank: :true %>
+                  </div>
+
+                  <div class="field">
+                    <%= form.label :mtype, "Type" %>
+                    <%= form.select :mtype_id, mtypes_dropdown, include_blank: :true, id: 'transfer' %>
+                  </div>
+
+                  <div class="field">
+                    <%= form.label :maccount, "Account" %>
+                    <%= form.select :maccount_id, maccounts_dropdown, include_blank: :true %>
+                  </div>
+
+                  <div class="field">
+                    <%= form.label :mcategory, "Category" %>
+                    <%= form.select :mcategory_id, mcategories_dropdown, include_blank: :true %>
+                  </div>
+
+                  <div class="field">
+                    <%= form.label :mlocation, "Location" %>
+                    <%= form.select :mlocation_id, mlocations_dropdown, include_blank: :true %>
+                  </div>
+
+                  <div class="field">
+                    <%= form.label :note %>
+                    <%= form.text_area :note %>
+                  </div>
+              </div>
+
+              <div class="actions">
+                <%= form.submit "Create Entry", id: "transfer-btn", class: "btn btn-outline-success my-2 my-sm-0" %>
+              </div>
+            <% end %>
+        <% end %>
+  </div>
+</div>
