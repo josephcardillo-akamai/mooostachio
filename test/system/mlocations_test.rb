@@ -17,7 +17,7 @@ class MlocationsTest < ApplicationSystemTestCase
     fill_in "Name", with: @mlocation.name
     click_on "Create Mlocation"
 
-    assert_text "Mlocation was successfully created"
+    assert_text "Location was successfully created"
     click_on "Back"
   end
 
@@ -28,7 +28,7 @@ class MlocationsTest < ApplicationSystemTestCase
     fill_in "Name", with: @mlocation.name
     click_on "Update Mlocation"
 
-    assert_text "Mlocation was successfully updated"
+    assert_text "Location was successfully updated"
     click_on "Back"
   end
 
@@ -38,6 +38,6 @@ class MlocationsTest < ApplicationSystemTestCase
       click_on "Destroy", match: :first
     end
 
-    assert_text "Mlocation was successfully destroyed"
+    assert_text "Location was successfully destroyed"
   end
 end

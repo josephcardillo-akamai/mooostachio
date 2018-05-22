@@ -26,10 +26,11 @@ class MstatusesController < ApplicationController
   # POST /mstatuses.json
   def create
     @mstatus = Mstatus.new(mstatus_params)
+    @mstatus.user_id = current_user.id
 
     respond_to do |format|
       if @mstatus.save
-        format.html { redirect_to @mstatus, notice: 'Mstatus was successfully created.' }
+        format.html { redirect_to @mstatus, notice: 'Status was successfully created.' }
         format.json { render :show, status: :created, location: @mstatus }
       else
         format.html { render :new }
@@ -43,7 +44,7 @@ class MstatusesController < ApplicationController
   def update
     respond_to do |format|
       if @mstatus.update(mstatus_params)
-        format.html { redirect_to @mstatus, notice: 'Mstatus was successfully updated.' }
+        format.html { redirect_to @mstatus, notice: 'Status was successfully updated.' }
         format.json { render :show, status: :ok, location: @mstatus }
       else
         format.html { render :edit }
@@ -57,7 +58,7 @@ class MstatusesController < ApplicationController
   def destroy
     @mstatus.destroy
     respond_to do |format|
-      format.html { redirect_to mstatuses_url, notice: 'Mstatus was successfully destroyed.' }
+      format.html { redirect_to mstatuses_url, notice: 'Status was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -70,6 +71,6 @@ class MstatusesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def mstatus_params
-      params.require(:mstatus).permit(:name)
+      params.require(:mstatus).permit(:name, :user_id)
     end
 end

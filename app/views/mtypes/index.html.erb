@@ -1,25 +1,28 @@
+<div class="form-container1">
+  <div class="form-container2">
+    <h1>Transaction Types</h1>
 
-<h1>Transaction Types</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @mtypes.each do |mtype| %>
-      <% if current_user.id == mtype.user_id %>
+    <table>
+      <thead>
         <tr>
-          <td><%= link_to mtype.name, mtype_path(mtype.id) %></td>
+          <th>Name</th>
+          <th colspan="3"></th>
         </tr>
-      <% end %>
-    <% end %>
-  </tbody>
-</table>
+      </thead>
 
-<br>
+      <tbody>
+        <% @mtypes.each do |mtype| %>
+          <% if current_user.id == mtype.user_id %>
+            <tr>
+              <td><%= link_to mtype.name, mtype_path(mtype.id) %></td>
+            </tr>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
 
-<%= link_to 'New Transaction Type', new_mtype_path %>
+    <br>
+
+    <%= link_to 'New Transaction Type', new_mtype_path %>
+  </div>
+</div>
