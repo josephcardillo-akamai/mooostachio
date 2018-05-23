@@ -15,7 +15,13 @@
             <tr>
                 <td><%= link_to maccount.name, maccount_path(maccount.id) %></td>
                 <td><%= link_to 'Edit', edit_maccount_path(maccount) %></td>
-                <td><%= link_to 'X', maccount, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                <% if maccount.name == 'checking' %>
+                  <% if maccount.name == 'savings' %>
+                    <% if maccount.name == 'credit card' %>
+                      <td><%= link_to 'X', maccount, method: :delete, data: { confirm: 'If you delete this account all entries associated with this account will also be deleted. Are you sure you want to do this?' } %></td>
+                    <% end %>
+                  <% end %>
+                <% end %>
             </tr>
           <% end %>
         <% end %>

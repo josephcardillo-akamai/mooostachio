@@ -56,7 +56,6 @@ class User < ApplicationRecord
   end
 
   def create_statuses
-    self.mstatuses.create(name:"Open")
     self.mstatuses.create(name:"Pending")
     self.mstatuses.create(name:"Closed")
   end
