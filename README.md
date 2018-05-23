@@ -40,7 +40,3 @@ Add your first expenditure:
 Add your second expenditure:
 
 ![](after-second-entry.png)
-
-View your checking balance by category: 
-
-![](account-breakdown.png)
