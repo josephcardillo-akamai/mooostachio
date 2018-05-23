@@ -33,8 +33,14 @@ Transfer that same amount using the 'transfer to' type:
 
 ![](transfer-to.png)
 
+Add your first expenditure:
+
 ![](first-debit-entry.png)
 
+Add your second expenditure:
+
 ![](after-second-entry.png)
+
+View your checking balance by category: 
 
 ![](cheking-balance.png)
