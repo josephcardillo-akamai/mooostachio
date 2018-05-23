@@ -21,9 +21,20 @@
 
 In order to get the most out of Mooostachio, start by adding your beginning balance to your checking and/or savings account as a 'deposit'.
 
-Let's say the balance in your checking account is $1,000. Add this amount, then click 'Create Entry'.
+Let's say the balance in your checking account is $1,000. Add this amount, then click 'Create Entry':
 
 ![](first-entry.png)
 
-You will now see that your checking account balance is $1,000. You can now transfer money from one category to the next. For example, if you spend $200 per week on food, you can transfer this amount to your food category:
+Your checking account balance is now $1,000. Now you can transfer money from one category to the next. For example, if you spend $200 per week on food, you can transfer this amount to your food category at the beginning of the week:
 
+![](transfer-from.png)
+
+Transfer that same amount using the 'transfer to' type:
+
+![](transfer-to.png)
+
+![](first-debit-entry.png)
+
+![](after-second-entry.png)
+
+![](cheking-balance.png)
