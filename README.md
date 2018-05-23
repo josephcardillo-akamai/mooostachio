@@ -43,4 +43,4 @@ Add your second expenditure:
 
 View your checking balance by category: 
 
-![](checking-balance.png)
+![](account-breakdown.png)
