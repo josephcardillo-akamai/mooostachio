@@ -19,11 +19,3 @@ development:
 test:
   <<: *default
   database: db/test.sqlite3
-
-production:
- <<: *default
-  adapter: postgresql
-  encoding: unicode
-  database: mooostachio
-  username: josephcardillo
-  password: ENV['MOOOSTACHIO_DB_PW']
