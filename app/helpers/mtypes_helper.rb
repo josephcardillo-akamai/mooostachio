@@ -7,6 +7,6 @@ module MtypesHelper
         arr << [mtype.name, mtype.id, {id: 'select'}]
         end
       end
-    return arr
+    return arr.sort!
   end
 end

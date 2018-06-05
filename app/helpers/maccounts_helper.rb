@@ -7,6 +7,6 @@ module MaccountsHelper
           arr << [maccount.name, maccount.id]
           end
         end
-      return arr
+      return arr.sort!
     end
 end

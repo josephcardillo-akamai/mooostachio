@@ -6,6 +6,6 @@ module MlocationsHelper
         arr << [mlocation.name, mlocation.id]
         end
       end
-    return arr
+    return arr.sort!
   end
 end

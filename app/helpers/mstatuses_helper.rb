@@ -7,6 +7,6 @@ module MstatusesHelper
         arr << [mstatus.name, mstatus.id]
         end
       end
-    return arr
+    return arr.sort!
   end
 end

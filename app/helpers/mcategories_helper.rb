@@ -7,7 +7,7 @@ module McategoriesHelper
             arr << [mcategory.name, mcategory.id]
           end
         end
-        return arr
+        return arr.sort!
     end
 
     def mcategory_entries
