@@ -5,6 +5,7 @@ ruby '2.5.1'
 gem 'devise'
 gem 'chartkick'
 gem 'pry', '~> 0.11.3'
+gem 'msgpack', '~> 1.2', '>= 1.2.4'
 
 # gem 'vuejs-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
