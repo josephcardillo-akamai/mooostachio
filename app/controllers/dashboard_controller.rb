@@ -27,6 +27,8 @@ class DashboardController < ApplicationController
           @mentry.amount = @mentry.amount * -1
         elsif @mentry.mtype.name == 'check'
           @mentry.amount = @mentry.amount * -1
+        elsif @mentry.mtype.name == 'charge'
+          @mentry.amount = @mentry.amount * -1
         end
     end
 

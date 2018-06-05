@@ -30,7 +30,7 @@ class MtypesController < ApplicationController
     @mtype.user_id = current_user.id
     respond_to do |format|
       if @mtype.save
-        format.html { redirect_to @mtype, notice: 'Mtype was successfully created.' }
+        format.html { redirect_to root_path, notice: 'Transaction type was successfully created.' }
         format.json { render :show, status: :created, location: @mtype }
       else
         format.html { render :new }
@@ -44,7 +44,7 @@ class MtypesController < ApplicationController
   def update
     respond_to do |format|
       if @mtype.update(mtype_params)
-        format.html { redirect_to @mtype, notice: 'Mtype was successfully updated.' }
+        format.html { redirect_to @mtype, notice: 'Transaction type was successfully updated.' }
         format.json { render :show, status: :ok, location: @mtype }
       else
         format.html { render :edit }

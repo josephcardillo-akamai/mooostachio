@@ -12,7 +12,7 @@ class MentriesController < ApplicationController
   # GET /mentries/1.json
   def show
     @mentries = Mentry.order("date DESC")
-    
+
   end
 
   # GET /mentries/new
@@ -34,11 +34,11 @@ class MentriesController < ApplicationController
     @mentry.user_id = current_user.id
     respond_to do |format|
       if @mentry.save && @mentry.mtype.name == 'Transfer'
-        format.html { redirect_to new_mentry_path, notice: 'Mentry was successfully created.' }
+        format.html { redirect_to new_mentry_path, notice: 'Entry was successfully created.' }
         format.json { render :edit, status: :created, location: @mentry }
         format.js
       elsif @mentry.save && @mentry.mtype != 'Transfer'
-        format.html { redirect_to root_path, notice: 'Mentry was successfully created.' }
+        format.html { redirect_to root_path, notice: 'Entry was successfully created.' }
         format.json { render :show, status: :created, location: @mentry }
         format.js
       else
@@ -68,7 +68,7 @@ class MentriesController < ApplicationController
   def destroy
     @mentry.destroy
     respond_to do |format|
-      format.html { redirect_to mentries_url, notice: 'Mentry was successfully destroyed.' }
+      format.html { redirect_to mentries_url, notice: 'Entry was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

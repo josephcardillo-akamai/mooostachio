@@ -69,6 +69,7 @@ class User < ApplicationRecord
     self.mtypes.create(name:"Deposit")
     self.mtypes.create(name:"Refund")
     self.mtypes.create(name:"Payment")
+    self.mtypes.create(name:"Charge")
     self.mtypes.create(name:"Check")
   end
 

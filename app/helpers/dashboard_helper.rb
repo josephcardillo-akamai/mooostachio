@@ -54,15 +54,16 @@ module DashboardHelper
           total = 0
           mcategory.mentries.each do |entry|
             if current_user.id == entry.user_id
-              if entry.mtype.name != 'transfer from'
-                # if entry.mtype.name != 'transfer to'
-                  if entry.mcategory.name != 'paycheck'
-                    if entry.mtype.name != 'deposit'
-                      total += entry.amount
+                if entry.mtype.name != 'transfer from'
+                  if entry.mtype.name != 'transfer to'
+                    if entry.mcategory.name != 'paycheck'
+                      if entry.mtype.name != 'deposit'
+                        total += entry.amount
+                      end
                     end
                   end
-                # end
-              end
+                end
+
             end
           end
           if total != 0
