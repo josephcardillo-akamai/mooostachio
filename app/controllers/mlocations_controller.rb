@@ -29,7 +29,7 @@ class MlocationsController < ApplicationController
     @mlocation.user_id = current_user.id
     respond_to do |format|
       if @mlocation.save
-        format.html { redirect_to @mlocation, notice: 'Location was successfully created.' }
+        format.html { redirect_to root_path, notice: 'Location was successfully created.' }
         format.json { render :show, status: :created, location: @mlocation }
       else
         format.html { render :new }

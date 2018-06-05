@@ -16,7 +16,7 @@
         </tr>
       </thead>
       <tbody class="table-row">
-          <% cat_not_zero.each do |mcategory| %>
+          <% cat_not_zero_breakdown.each do |mcategory| %>
             <tr>
                 <th scope="row">
                     <%= link_to mcategory.name, mcategory_path(mcategory.id) %>
@@ -24,9 +24,9 @@
                   <% total = 0 %>
                   <% mcategory.mentries.each do |entry| %>
                     <% if current_user.id == entry.user_id %>
-                      <% if entry.maccount.name == @maccount.name  %>
-                          <% total += entry.amount %>
-                      <% end %>
+                        <% if entry.maccount.name == @maccount.name  %>
+                            <% total += entry.amount %>
+                        <% end %>
                     <% end %>
                   <% end %>
                 <td scope="row" align="right">

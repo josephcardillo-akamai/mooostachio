@@ -29,7 +29,7 @@ class McategoriesController < ApplicationController
     @mcategory.user_id = current_user.id
     respond_to do |format|
       if @mcategory.save
-        format.html { redirect_to @mcategory, notice: 'Mcategory was successfully created.' }
+        format.html { redirect_to root_path, notice: 'Category was successfully created.' }
         format.json { render :show, status: :created, location: @mcategory }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class McategoriesController < ApplicationController
   def update
     respond_to do |format|
       if @mcategory.update(mcategory_params)
-        format.html { redirect_to @mcategory, notice: 'Mcategory was successfully updated.' }
+        format.html { redirect_to @mcategory, notice: 'Category was successfully updated.' }
         format.json { render :show, status: :ok, location: @mcategory }
       else
         format.html { render :edit }
@@ -57,7 +57,7 @@ class McategoriesController < ApplicationController
   def destroy
     @mcategory.destroy
     respond_to do |format|
-      format.html { redirect_to mcategories_url, notice: 'Mcategory was successfully destroyed.' }
+      format.html { redirect_to mcategories_url, notice: 'Category was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
