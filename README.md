@@ -3,7 +3,7 @@
 ## Mooostach.io
 ### A money managing application to help you visualize where your money is going.
 
-![](Mooostachio.mp4)
+![](Mooostachio)[https://www.youtube.com/watch?v=N8azvZ8qSY0&index=2&t=0s&list=PLL6eZS7x7o_9Kz_YX-oQU6YEV0ktGmDSA]
 
 ![](dashboard-screenshot.png)
 
